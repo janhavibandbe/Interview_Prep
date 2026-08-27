@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { topics, topicContent } from "../data/topics";
+import { topics, topicContent } from "../data/Topics";
 
 import ConceptTitle from "../components/ConceptTitle";
 import TheorySection from "../components/TheorySection";
