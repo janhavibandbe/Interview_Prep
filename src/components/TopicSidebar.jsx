@@ -62,9 +62,9 @@ function TopicSidebar({concepts}) {
         >
           {/* Sidebar Header */}
           <div className="flex h-16 items-center justify-between border-b border-gray-200 px-5 dark:border-gray-700">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            {/* <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               Concepts
-            </h2>
+            </h2> */}
 
             <button
               type="button"
@@ -86,7 +86,7 @@ function TopicSidebar({concepts}) {
                   onClick={() => scrollToConcept(concept.id)}
                   className="block w-full rounded-lg px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400"
                 >
-                  {index + 1}. {concept.name}
+                  {concept.name}
                 </button>
               ))}
             </div>
@@ -98,11 +98,11 @@ function TopicSidebar({concepts}) {
 
       <aside className="hidden w-64 shrink-0 lg:sticky lg:top-4 lg:block">
         <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+          {/* <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
             Concepts
-          </h2>
+          </h2> */}
 
-          <nav className="max-h-[calc(100vh-7rem)] space-y-1 overflow-y-auto">
+          <nav className="max-h-[calc(100vh-4rem)] space-y-1 overflow-y-auto">
             {concepts.map((concept, index) => (
               <button
                 key={concept.id}
@@ -110,7 +110,7 @@ function TopicSidebar({concepts}) {
                 onClick={() => scrollToConcept(concept.id)}
                 className="block w-full rounded-lg px-3 py-2 text-left text-sm text-gray-700 transition hover:bg-gray-100 hover:text-blue-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400"
               >
-                {index + 1}. {concept.name}
+                {concept.name}
               </button>
             ))}
           </nav>

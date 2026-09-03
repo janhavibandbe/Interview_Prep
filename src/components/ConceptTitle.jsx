@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ConceptTitle({number, name}) {
+function ConceptTitle({name}) {
   return (
     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-      {number}. {name}
+      {name}
     </h2>
   );
 }

@@ -70,7 +70,6 @@ function Topic() {
                 className="scroll-mt-24 rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900 sm:p-6"
               >
                 <ConceptTitle
-                  number={index + 1}
                   name={concept.name}
                 />
 
