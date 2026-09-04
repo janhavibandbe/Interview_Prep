@@ -50,6 +50,12 @@ export const topics = [
     category: "Data",
   },
   {
+    id: "sql",
+    name: "SQL",
+    description: "Excel functions, analysis and interview concepts",
+    category: "Data",
+  },
+  {
     id: "powerbi",
     name: "Power BI",
     description: "Data visualization, DAX and Power BI concepts",
@@ -454,8 +460,6 @@ NaN</code></pre>
       `      
       `},
     ],
-
-    
   },
 
   excel: {
@@ -8836,5 +8840,6919 @@ NaN</code></pre>
         theory: ``,
       },
     ]
-  }
+  },
+
+  sql: {
+    concepts: [
+      {
+        id: "SQLFundamentals",
+        name: "SQL Fundamentals",
+        theory:`
+        <h3>1. What is SQL?</h3>
+
+        <p><strong>SQL (Structured Query Language)</strong> is a standard language used to <strong>communicate with and manage relational databases</strong>.</p>
+
+        <p>With SQL, we can:</p>
+
+        <ul>
+          <li>Create databases and tables</li>
+          <li>Insert data</li>
+          <li>Retrieve data</li>
+          <li>Update data</li>
+          <li>Delete data</li>
+          <li>Filter and sort data</li>
+          <li>Join data from multiple tables</li>
+          <li>Perform calculations and aggregations</li>
+          <li>Control access to database objects</li>
+        </ul>
+
+        <p><strong>Example</strong></p>
+
+        <pre><code>SELECT employee_id, name, salary
+        FROM employees
+        WHERE salary &gt; 50000;</code></pre>
+
+        <p>This query retrieves employees whose salary is greater than <code>50000</code>.</p>
+
+        <p><strong>Main Categories of SQL Commands</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Purpose</th>
+                <th>Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DDL</td>
+                <td>Define database structure</td>
+                <td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code></td>
+              </tr>
+              <tr>
+                <td>DML</td>
+                <td>Modify data</td>
+                <td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>
+              </tr>
+              <tr>
+                <td>DQL</td>
+                <td>Retrieve data</td>
+                <td><code>SELECT</code></td>
+              </tr>
+              <tr>
+                <td>DCL</td>
+                <td>Control permissions</td>
+                <td><code>GRANT</code>, <code>REVOKE</code></td>
+              </tr>
+              <tr>
+                <td>TCL</td>
+                <td>Manage transactions</td>
+                <td><code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>SQL is a language used to interact with relational databases. It allows us to create and modify database structures, insert and manipulate data, retrieve information, and perform operations such as filtering, joining, and aggregating data.</strong></p>
+        </blockquote>
+
+        <h3>2. What is DBMS?</h3>
+
+        <p><strong>DBMS (Database Management System)</strong> is software used to <strong>create, store, manage, retrieve, and manipulate data in a database</strong>.</p>
+
+        <p>It acts as an interface between the <strong>user/application and the database</strong>.</p>
+
+        <p><strong>Examples of DBMS include:</strong></p>
+
+        <ul>
+          <li>MySQL</li>
+          <li>Oracle Database</li>
+          <li>Microsoft SQL Server</li>
+          <li>PostgreSQL</li>
+          <li>SQLite</li>
+        </ul>
+
+        <p><strong>What does a DBMS do?</strong></p>
+
+        <p>A DBMS helps with:</p>
+
+        <ul>
+          <li>Data storage</li>
+          <li>Data retrieval</li>
+          <li>Data modification</li>
+          <li>Data security</li>
+          <li>User access control</li>
+          <li>Backup and recovery</li>
+          <li>Data consistency</li>
+          <li>Transaction management</li>
+        </ul>
+
+        <p><strong>Simple Example</strong></p>
+
+        <p>Suppose a company stores employee information.</p>
+
+        <p>Instead of maintaining thousands of records manually in files, a DBMS allows applications to store and retrieve employee data efficiently.</p>
+
+        <pre><code>SELECT *
+        FROM employees;</code></pre>
+
+        <p>The DBMS processes this query and returns the requested data.</p>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>A DBMS is software that allows users and applications to store, manage, retrieve, and manipulate data in a database. It also provides features such as security, concurrency control, backup, and transaction management.</strong></p>
+        </blockquote>
+
+        <h3>3. What is RDBMS?</h3>
+
+        <p><strong>RDBMS (Relational Database Management System)</strong> is a type of DBMS that stores data in the form of <strong>related tables</strong>.</p>
+
+        <p>Each table generally consists of:</p>
+
+        <ul>
+          <li>Rows → records</li>
+          <li>Columns → attributes</li>
+        </ul>
+
+        <p>Tables can be related to each other using <strong>keys</strong>, especially foreign keys.</p>
+
+        <p>For example:</p>
+
+        <p><strong>Customers</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>customer_id</th>
+                <th>name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Rahul</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Priya</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Orders</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>order_id</th>
+                <th>customer_id</th>
+                <th>amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>1</td>
+                <td>5000</td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>2</td>
+                <td>3000</td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>1</td>
+                <td>2000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Here, <code>customer_id</code> connects the two tables.</p>
+
+        <pre><code>SELECT c.name, o.amount
+        FROM customers c
+        JOIN orders o
+            ON c.customer_id = o.customer_id;</code></pre>
+
+        <p><strong>Examples of RDBMS</strong></p>
+
+        <ul>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+          <li>Oracle</li>
+          <li>SQL Server</li>
+          <li>MariaDB</li>
+        </ul>
+
+        <p><strong>DBMS vs RDBMS</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>DBMS</th>
+                <th>RDBMS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>General database management system</td>
+                <td>Relational database management system</td>
+              </tr>
+              <tr>
+                <td>May or may not use tables</td>
+                <td>Uses tables to represent data</td>
+              </tr>
+              <tr>
+                <td>Relationships may not be a core concept</td>
+                <td>Relationships between tables are fundamental</td>
+              </tr>
+              <tr>
+                <td>May have less strict relational constraints</td>
+                <td>Supports keys and relational constraints</td>
+              </tr>
+              <tr>
+                <td>Example: some file-based database systems</td>
+                <td>MySQL, PostgreSQL, Oracle</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>RDBMS is a type of DBMS that stores data in related tables consisting of rows and columns. It uses relationships and keys such as primary keys and foreign keys to maintain data integrity. MySQL is an example of an RDBMS.</strong></p>
+        </blockquote>
+
+        <h3>4. Database vs Table</h3>
+
+        <p>These two terms are often confused.</p>
+
+        <p><strong>Database</strong></p>
+
+        <p>A <strong>database</strong> is a collection of related data and database objects.</p>
+
+        <p>It can contain:</p>
+
+        <ul>
+          <li>Tables</li>
+          <li>Views</li>
+          <li>Indexes</li>
+          <li>Stored procedures</li>
+          <li>Functions</li>
+          <li>Triggers</li>
+        </ul>
+
+        <p>For example:</p>
+
+        <pre><code>CompanyDB
+        │
+        ├── employees
+        ├── departments
+        ├── salaries
+        └── projects</code></pre>
+
+        <p><strong>Table</strong></p>
+
+        <p>A <strong>table</strong> is a structure inside a database used to store data in <strong>rows and columns</strong>.</p>
+
+        <p>Example:</p>
+
+        <pre><code>employees
+        --------------------------------
+        employee_id | name | salary
+        --------------------------------
+        1           | Amit | 50000
+        2           | Priya| 60000</code></pre>
+
+        <p><strong>MySQL Example</strong></p>
+
+        <p>Create a database:</p>
+
+        <pre><code>CREATE DATABASE company_db;</code></pre>
+
+        <p>Select it:</p>
+
+        <pre><code>USE company_db;</code></pre>
+
+        <p>Create a table:</p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT,
+            name VARCHAR(100),
+            salary DECIMAL(10,2)
+        );</code></pre>
+
+        <p><strong>Difference</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Database</th>
+                <th>Table</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Container for related database objects</td>
+                <td>Structure that stores data</td>
+              </tr>
+              <tr>
+                <td>Can contain multiple tables</td>
+                <td>Contains rows and columns</td>
+              </tr>
+              <tr>
+                <td>Higher-level object</td>
+                <td>Object inside a database</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>A database is a container that can hold multiple database objects such as tables, views, and procedures. A table is a specific structure inside the database that stores data in rows and columns.</strong></p>
+        </blockquote>
+
+        <h3>5. Rows vs Columns</h3>
+
+        <p>A <strong>row</strong> represents a <strong>single record/entity</strong>.</p>
+
+        <p>A <strong>column</strong> represents an <strong>attribute/property</strong> of that record.</p>
+
+        <p>Consider:</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>employee_id</th>
+                <th>name</th>
+                <th>department</th>
+                <th>salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>Amit</td>
+                <td>IT</td>
+                <td>60000</td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>Priya</td>
+                <td>HR</td>
+                <td>55000</td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>Rahul</td>
+                <td>Sales</td>
+                <td>50000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Row</strong></p>
+
+        <p>The first row:</p>
+
+        <pre><code>101 | Amit | IT | 60000</code></pre>
+
+        <p>represents one employee.</p>
+
+        <p><strong>Column</strong></p>
+
+        <p>The <code>salary</code> column represents the salary attribute of employees.</p>
+
+        <p><strong>Easy way to remember</strong></p>
+
+        <blockquote>
+          <p><strong>Row = Who/What is the record?</strong></p>
+          <p><strong>Column = What information do we know about it?</strong></p>
+        </blockquote>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>A row represents a single record in a table, while a column represents an attribute or field of that record. For example, one employee is represented by a row, while employee name, department, and salary are columns.</strong></p>
+        </blockquote>
+
+        <h3>6. Primary Key</h3>
+
+        <p>A <strong>Primary Key</strong> is a column or combination of columns that <strong>uniquely identifies each row in a table</strong>.</p>
+
+        <p><strong>Properties of a Primary Key</strong></p>
+
+        <ol>
+          <li>Must contain <strong>unique values</strong></li>
+          <li>Cannot contain <strong>NULL</strong></li>
+          <li>There can be <strong>only one primary key constraint</strong> per table</li>
+          <li>It can consist of <strong>one or multiple columns</strong></li>
+        </ol>
+
+        <p><strong>Example</strong></p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            name VARCHAR(100),
+            salary DECIMAL(10,2)
+        );</code></pre>
+
+        <p>Here:</p>
+
+        <pre><code>employee_id
+        101
+        102
+        103</code></pre>
+
+        <p>uniquely identifies each employee.</p>
+
+        <p><strong>What happens if we insert a duplicate?</strong></p>
+
+        <pre><code>INSERT INTO employees
+        VALUES (101, 'Rahul', 50000);</code></pre>
+
+        <p>If <code>101</code> already exists as the primary key, MySQL will reject the insertion because the primary key must be unique.</p>
+
+        <p><strong>Primary Key with Multiple Columns</strong></p>
+
+        <p>A primary key can also contain multiple columns.</p>
+
+        <pre><code>CREATE TABLE student_courses (
+            student_id INT,
+            course_id INT,
+            enrollment_date DATE,
+            PRIMARY KEY (student_id, course_id)
+        );</code></pre>
+
+        <p>Here, the combination:</p>
+
+        <pre><code>student_id + course_id</code></pre>
+
+        <p>must be unique.</p>
+
+        <p><strong>Important Interview Point</strong></p>
+
+        <p>A table can have <strong>only one PRIMARY KEY constraint</strong>, but that primary key can contain <strong>multiple columns</strong>.</p>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>A primary key is a column or combination of columns that uniquely identifies each record in a table. It cannot contain NULL values, and a table can have only one primary key constraint.</strong></p>
+        </blockquote>
+
+        <h3>7. Foreign Key</h3>
+
+        <p>A <strong>Foreign Key</strong> is a column or set of columns used to <strong>establish a relationship between two tables</strong>.</p>
+
+        <p>It usually references the <strong>primary key of another table</strong>.</p>
+
+        <p>Consider:</p>
+
+        <p><strong>Departments</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>department_id</th>
+                <th>department_name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>IT</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>HR</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Sales</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Employees</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>employee_id</th>
+                <th>name</th>
+                <th>department_id</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>Amit</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>Priya</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>Rahul</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Here:</p>
+
+        <pre><code>departments.department_id
+                  ↑
+                  |
+        employees.department_id</code></pre>
+
+        <p><code>employees.department_id</code> is the foreign key.</p>
+
+        <p><strong>MySQL Example</strong></p>
+
+        <pre><code>CREATE TABLE departments (
+            department_id INT PRIMARY KEY,
+            department_name VARCHAR(100)
+        );</code></pre>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            name VARCHAR(100),
+            department_id INT,
+
+            FOREIGN KEY (department_id)
+                REFERENCES departments(department_id)
+        );</code></pre>
+
+        <p><strong>Why use Foreign Keys?</strong></p>
+
+        <p>Foreign keys help maintain <strong>referential integrity</strong>.</p>
+
+        <p>For example, if department <code>10</code> does not exist:</p>
+
+        <pre><code>department_id = 10</code></pre>
+
+        <p>MySQL can prevent inserting an employee referencing that nonexistent department, depending on the table/storage-engine and constraint setup.</p>
+
+        <p><strong>Foreign Key vs Primary Key</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Primary Key</th>
+                <th>Foreign Key</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Uniquely identifies a row</td>
+                <td>Creates a relationship between tables</td>
+              </tr>
+              <tr>
+                <td>Cannot be NULL</td>
+                <td>Can generally contain NULL unless restricted</td>
+              </tr>
+              <tr>
+                <td>Must be unique</td>
+                <td>Does not have to be unique</td>
+              </tr>
+              <tr>
+                <td>One primary key constraint per table</td>
+                <td>A table can have multiple foreign keys</td>
+              </tr>
+              <tr>
+                <td>Referenced by foreign keys</td>
+                <td>References a key in another table</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Important Point</strong></p>
+
+        <p>A foreign key does <strong>not necessarily have to reference a primary key</strong>; in MySQL, it can reference a suitable indexed key subject to the foreign-key requirements. In most interview examples, however, it references the primary key.</p>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>A foreign key is a column or combination of columns that establishes a relationship between tables by referencing a key in another table. It helps maintain referential integrity and prevents invalid relationships between records.</strong></p>
+        </blockquote>
+
+        <h3>8. Candidate Key</h3>
+
+        <p>A <strong>Candidate Key</strong> is a column or combination of columns that can <strong>uniquely identify every row</strong> and is therefore a candidate for becoming the primary key.</p>
+
+        <p>A table can have <strong>multiple candidate keys</strong>, but we choose one of them as the primary key.</p>
+
+        <p><strong>Example</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>employee_id</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>amit@gmail.com</td>
+                <td>9876543210</td>
+                <td>Amit</td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>priya@gmail.com</td>
+                <td>9876543211</td>
+                <td>Priya</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Assume:</p>
+
+        <ul>
+          <li><code>employee_id</code> is unique</li>
+          <li><code>email</code> is unique</li>
+          <li><code>phone</code> is unique</li>
+        </ul>
+
+        <p>Then:</p>
+
+        <pre><code>employee_id
+        email
+        phone</code></pre>
+
+        <p>can all be candidate keys.</p>
+
+        <p>We might choose:</p>
+
+        <pre><code>employee_id</code></pre>
+
+        <p>as the primary key.</p>
+
+        <p>The other candidate keys are called <strong>alternate keys</strong>.</p>
+
+        <p><strong>Candidate Key Requirements</strong></p>
+
+        <p>A candidate key should be:</p>
+
+        <ul>
+          <li>Unique</li>
+          <li>Minimal</li>
+          <li>Able to identify each record</li>
+        </ul>
+
+        <p><strong>Minimal</strong> means no unnecessary attribute should be included.</p>
+
+        <p><strong>Candidate Key vs Primary Key</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Candidate Key</th>
+                <th>Primary Key</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Any key that can uniquely identify records</td>
+                <td>Candidate key selected as the main identifier</td>
+              </tr>
+              <tr>
+                <td>Multiple candidate keys can exist</td>
+                <td>Only one primary key constraint</td>
+              </tr>
+              <tr>
+                <td>Not all candidate keys are selected</td>
+                <td>Exactly one candidate key is selected as primary key</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>A candidate key is a minimal column or combination of columns that can uniquely identify each record. A table can have multiple candidate keys, and one of them is selected as the primary key.</strong></p>
+        </blockquote>
+
+        <h3>9. Composite Key</h3>
+
+        <p>A <strong>Composite Key</strong> is a key made up of <strong>two or more columns</strong> that together uniquely identify a record.</p>
+
+        <p>It is useful when <strong>one column alone cannot uniquely identify a record</strong>.</p>
+
+        <p><strong>Example</strong></p>
+
+        <p>Consider a student-course enrollment table:</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>student_id</th>
+                <th>course_id</th>
+                <th>enrollment_date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>501</td>
+                <td>2026-01-10</td>
+              </tr>
+              <tr>
+                <td>101</td>
+                <td>502</td>
+                <td>2026-01-11</td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>501</td>
+                <td>2026-01-12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><code>student_id</code> alone is not unique because student <code>101</code> appears twice.</p>
+
+        <p><code>course_id</code> alone is also not unique because course <code>501</code> appears for multiple students.</p>
+
+        <p>But:</p>
+
+        <pre><code>student_id + course_id</code></pre>
+
+        <p>is unique.</p>
+
+        <p><strong>MySQL Example</strong></p>
+
+        <pre><code>CREATE TABLE enrollments (
+            student_id INT,
+            course_id INT,
+            enrollment_date DATE,
+
+            PRIMARY KEY (student_id, course_id)
+        );</code></pre>
+
+        <p>Here:</p>
+
+        <pre><code>(student_id, course_id)</code></pre>
+
+        <p>is the composite primary key.</p>
+
+        <p><strong>Important Point</strong></p>
+
+        <p>A composite key doesn't necessarily mean a <strong>composite primary key</strong>.</p>
+
+        <p>A composite key simply means a key consisting of multiple columns. It can be used as a primary key or potentially as another type of key.</p>
+
+        <p><strong>Composite Key vs Candidate Key</strong></p>
+
+        <p>A candidate key can be:</p>
+
+        <pre><code>employee_id</code></pre>
+
+        <p>or:</p>
+
+        <pre><code>student_id + course_id</code></pre>
+
+        <p>A composite key specifically contains <strong>multiple columns</strong>.</p>
+
+        <p>Therefore:</p>
+
+        <blockquote>
+          <p><strong>A composite candidate key is a candidate key consisting of multiple columns.</strong></p>
+        </blockquote>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>A composite key is a key made up of two or more columns that together uniquely identify a record. It is commonly used in many-to-many relationship tables, such as a student-course enrollment table.</strong></p>
+        </blockquote>
+
+        <h3>10. Constraints</h3>
+
+        <p><strong>Constraints</strong> are rules applied to columns or tables to <strong>control the type of data that can be stored and maintain data integrity</strong>.</p>
+
+        <p><strong>Important MySQL Constraints</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Constraint</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>PRIMARY KEY</code></td>
+                <td>Uniquely identifies each row</td>
+              </tr>
+              <tr>
+                <td><code>FOREIGN KEY</code></td>
+                <td>Maintains relationships between tables</td>
+              </tr>
+              <tr>
+                <td><code>UNIQUE</code></td>
+                <td>Prevents duplicate values</td>
+              </tr>
+              <tr>
+                <td><code>NOT NULL</code></td>
+                <td>Prevents NULL values</td>
+              </tr>
+              <tr>
+                <td><code>CHECK</code></td>
+                <td>Ensures a condition is satisfied</td>
+              </tr>
+              <tr>
+                <td><code>DEFAULT</code></td>
+                <td>Provides a default value</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>PRIMARY KEY</strong></p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY
+        );</code></pre>
+
+        <p>Ensures that <code>employee_id</code> is unique and not NULL.</p>
+
+        <p><strong>FOREIGN KEY</strong></p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            department_id INT,
+
+            FOREIGN KEY (department_id)
+                REFERENCES departments(department_id)
+        );</code></pre>
+
+        <p>Maintains a valid relationship with <code>departments</code>.</p>
+
+        <p><strong>UNIQUE</strong></p>
+
+        <p>Ensures that values in a column are not duplicated.</p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            email VARCHAR(100) UNIQUE
+        );</code></pre>
+
+        <p>Two employees cannot have the same email.</p>
+
+        <p><strong>Important MySQL point:</strong> a <code>UNIQUE</code> constraint can allow <code>NULL</code> values, subject to MySQL's handling of multiple NULLs.</p>
+
+        <p><strong>NOT NULL</strong></p>
+
+        <p>Prevents a column from containing <code>NULL</code>.</p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            name VARCHAR(100) NOT NULL
+        );</code></pre>
+
+        <p>An employee cannot be inserted without a name.</p>
+
+        <p><strong>CHECK</strong></p>
+
+        <p>Ensures that inserted or updated values satisfy a condition.</p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            age INT CHECK (age &gt;= 18)
+        );</code></pre>
+
+        <p>An age below 18 violates the check condition.</p>
+
+        <p><strong>DEFAULT</strong></p>
+
+        <p>Provides a value automatically when no value is supplied.</p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            status VARCHAR(20) DEFAULT 'Active'
+        );</code></pre>
+
+        <p>If <code>status</code> isn't provided:</p>
+
+        <pre><code>INSERT INTO employees (employee_id)
+        VALUES (101);</code></pre>
+
+        <p>the default status becomes:</p>
+
+        <pre><code>Active</code></pre>
+
+        <h3>Complete Example Using Constraints</h3>
+
+        <pre><code>CREATE TABLE departments (
+            department_id INT PRIMARY KEY,
+            department_name VARCHAR(100) UNIQUE NOT NULL
+        );</code></pre>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            email VARCHAR(100) UNIQUE,
+            age INT CHECK (age &gt;= 18),
+            salary DECIMAL(10,2) CHECK (salary &gt; 0),
+            status VARCHAR(20) DEFAULT 'Active',
+            department_id INT,
+
+            FOREIGN KEY (department_id)
+                REFERENCES departments(department_id)
+        );</code></pre>
+
+        <p>Here we have used:</p>
+
+        <ul>
+          <li><code>PRIMARY KEY</code></li>
+          <li><code>UNIQUE</code></li>
+          <li><code>NOT NULL</code></li>
+          <li><code>CHECK</code></li>
+          <li><code>DEFAULT</code></li>
+          <li><code>FOREIGN KEY</code></li>
+        </ul>
+
+        <h3>Important Interview Comparisons</h3>
+
+        <p><strong>Primary Key vs Unique Key</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Primary Key</th>
+                <th>UNIQUE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Uniquely identifies a row</td>
+                <td>Prevents duplicate values</td>
+              </tr>
+              <tr>
+                <td>Cannot contain NULL</td>
+                <td>Can generally contain NULL</td>
+              </tr>
+              <tr>
+                <td>One primary key constraint per table</td>
+                <td>Multiple UNIQUE constraints can exist</td>
+              </tr>
+              <tr>
+                <td>Main identifier of the record</td>
+                <td>Additional uniqueness rule</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Primary Key vs Candidate Key</strong></p>
+
+        <pre><code>Candidate Keys
+              ↓
+        Choose one
+              ↓
+        Primary Key</code></pre>
+
+        <p>For example:</p>
+
+        <pre><code>employee_id → candidate key
+        email       → candidate key
+        phone       → candidate key</code></pre>
+
+        <p>If we select <code>employee_id</code>:</p>
+
+        <pre><code>employee_id → Primary Key
+        email       → Alternate Key
+        phone       → Alternate Key</code></pre>
+
+        <p><strong>Primary Key vs Foreign Key</strong></p>
+
+        <pre><code>Departments
+        -----------------
+        department_id  ← Primary Key
+              ↑
+              |
+              | referenced by
+              |
+        Employees
+        -----------------
+        department_id  ← Foreign Key</code></pre>
+
+        <p><strong>Primary Key:</strong> identifies a record.</p>
+
+        <p><strong>Foreign Key:</strong> establishes a relationship with another table.</p>
+
+        <p><strong>Candidate Key vs Composite Key</strong></p>
+
+        <p>These concepts describe different things.</p>
+
+        <p><strong>Candidate key</strong> describes the <strong>role</strong> of a key:</p>
+
+        <blockquote>
+          <p>Can this key uniquely identify every record?</p>
+        </blockquote>
+
+        <p><strong>Composite key</strong> describes its <strong>structure</strong>:</p>
+
+        <blockquote>
+          <p>Does this key contain multiple columns?</p>
+        </blockquote>
+
+        <p>Therefore, a key can be both:</p>
+
+        <blockquote>
+          <p><strong>A composite candidate key</strong></p>
+        </blockquote>
+
+        <p>For example:</p>
+
+        <pre><code>(student_id, course_id)</code></pre>
+
+        <p>can be a composite candidate key.</p>
+
+        <h3>Quick Interview Cheat Sheet</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>One-Line Definition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>SQL</strong></td>
+                <td>Language used to interact with relational databases</td>
+              </tr>
+              <tr>
+                <td><strong>DBMS</strong></td>
+                <td>Software used to manage databases</td>
+              </tr>
+              <tr>
+                <td><strong>RDBMS</strong></td>
+                <td>DBMS that stores data in related tables</td>
+              </tr>
+              <tr>
+                <td><strong>Database</strong></td>
+                <td>Container for related data and database objects</td>
+              </tr>
+              <tr>
+                <td><strong>Table</strong></td>
+                <td>Structure that stores data in rows and columns</td>
+              </tr>
+              <tr>
+                <td><strong>Row</strong></td>
+                <td>A single record</td>
+              </tr>
+              <tr>
+                <td><strong>Column</strong></td>
+                <td>An attribute/field of a record</td>
+              </tr>
+              <tr>
+                <td><strong>Primary Key</strong></td>
+                <td>Uniquely identifies each row</td>
+              </tr>
+              <tr>
+                <td><strong>Foreign Key</strong></td>
+                <td>Establishes a relationship between tables</td>
+              </tr>
+              <tr>
+                <td><strong>Candidate Key</strong></td>
+                <td>Minimal key that can uniquely identify a row</td>
+              </tr>
+              <tr>
+                <td><strong>Composite Key</strong></td>
+                <td>Key consisting of multiple columns</td>
+              </tr>
+              <tr>
+                <td><strong>Constraint</strong></td>
+                <td>Rule that maintains data integrity</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>What You Should Be Able to Explain in an Interview</h3>
+
+        <p>For these fundamentals, make sure you can answer these follow-ups:</p>
+
+        <ol>
+          <li><strong>Can a table have multiple primary keys?</strong><br>
+            No. It can have only one primary key constraint, although that primary key can contain multiple columns.
+          </li>
+          <li><strong>Can a primary key contain NULL?</strong><br>
+            No.
+          </li>
+          <li><strong>Can a foreign key contain NULL?</strong><br>
+            Yes, unless the column is also defined as <code>NOT NULL</code> or another rule prevents it.
+          </li>
+          <li><strong>Can a table have multiple foreign keys?</strong><br>
+            Yes.
+          </li>
+          <li><strong>Can a table have multiple candidate keys?</strong><br>
+            Yes.
+          </li>
+          <li><strong>Can a composite key be a primary key?</strong><br>
+            Yes.
+          </li>
+          <li><strong>Can a primary key have multiple columns?</strong><br>
+            Yes. It is then a composite primary key.
+          </li>
+          <li><strong>What is the difference between UNIQUE and PRIMARY KEY?</strong><br>
+            Both enforce uniqueness, but the primary key is the table's main identifier, cannot be NULL, and only one primary-key constraint can exist per table.
+          </li>
+          <li><strong>Why are foreign keys important?</strong><br>
+            They maintain referential integrity between related tables.
+          </li>
+          <li><strong>What is the purpose of constraints?</strong><br>
+            To prevent invalid, inconsistent, or duplicate data from entering the database.
+          </li>
+        </ol>
+      `},
+
+      {
+        id: "SQLStatements",
+        name: "SQL Statements",
+        theory:`
+        <p>SQL statements are commonly divided into different categories based on what they do with the database.</p>
+
+        <p><strong>The major categories are:</strong></p>
+
+        <ol>
+          <li><strong>DDL</strong> – Data Definition Language</li>
+          <li><strong>DML</strong> – Data Manipulation Language</li>
+          <li><strong>DQL</strong> – Data Query Language</li>
+          <li><strong>DCL</strong> – Data Control Language</li>
+          <li><strong>TCL</strong> – Transaction Control Language</li>
+        </ol>
+
+        <p><strong>A simple way to remember them:</strong></p>
+
+        <pre><code>DDL → Define the structure
+        DML → Manipulate the data
+        DQL → Query/read the data
+        DCL → Control access
+        TCL → Control transactions</code></pre>
+
+        <h3>1. DDL — Data Definition Language</h3>
+
+        <p><strong>DDL is used to define and modify the structure/schema of database objects.</strong></p>
+
+        <p>It deals mainly with <strong>database structure</strong>, rather than the actual records stored inside tables.</p>
+
+        <p><strong>Important DDL Statements</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Statement</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>CREATE</code></td>
+                <td>Creates a database object</td>
+              </tr>
+              <tr>
+                <td><code>ALTER</code></td>
+                <td>Modifies an existing object</td>
+              </tr>
+              <tr>
+                <td><code>DROP</code></td>
+                <td>Deletes an object</td>
+              </tr>
+              <tr>
+                <td><code>TRUNCATE</code></td>
+                <td>Removes all rows from a table</td>
+              </tr>
+              <tr>
+                <td><code>RENAME</code></td>
+                <td>Renames a database object</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>CREATE</strong></p>
+
+        <p>Used to create database objects such as databases and tables.</p>
+
+        <p><strong>Create Database</strong></p>
+
+        <pre><code>CREATE DATABASE company_db;</code></pre>
+
+        <p><strong>Create Table</strong></p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            name VARCHAR(100),
+            salary DECIMAL(10,2)
+        );</code></pre>
+
+        <p><strong>ALTER</strong></p>
+
+        <p>Used to modify the structure of an existing table.</p>
+
+        <p><strong>Add a Column</strong></p>
+
+        <pre><code>ALTER TABLE employees
+        ADD department VARCHAR(50);</code></pre>
+
+        <p><strong>Modify a Column</strong></p>
+
+        <pre><code>ALTER TABLE employees
+        MODIFY salary DECIMAL(12,2);</code></pre>
+
+        <p><strong>Rename a Column</strong></p>
+
+        <pre><code>ALTER TABLE employees
+        RENAME COLUMN name TO employee_name;</code></pre>
+
+        <p><strong>Drop a Column</strong></p>
+
+        <pre><code>ALTER TABLE employees
+        DROP COLUMN department;</code></pre>
+
+        <p><strong>DROP</strong></p>
+
+        <p>Deletes the database object itself.</p>
+
+        <pre><code>DROP TABLE employees;</code></pre>
+
+        <p>After this statement, the <code>employees</code> table and its data are removed.</p>
+
+        <p>You can also drop a database:</p>
+
+        <pre><code>DROP DATABASE company_db;</code></pre>
+
+        <p><strong>Important Interview Point</strong></p>
+
+        <p><code>DROP</code> removes the <strong>entire object</strong>, including its structure and data.</p>
+
+        <p><strong>TRUNCATE</strong></p>
+
+        <p>Removes <strong>all rows from a table</strong> while keeping the table structure.</p>
+
+        <pre><code>TRUNCATE TABLE employees;</code></pre>
+
+        <p>After <code>TRUNCATE</code>:</p>
+
+        <pre><code>Table structure → Still exists
+        Data            → Removed</code></pre>
+
+        <p>You can insert new records into the table afterward.</p>
+
+        <p><strong>DELETE vs TRUNCATE vs DROP</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>DELETE</th>
+                <th>TRUNCATE</th>
+                <th>DROP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Removes rows</td>
+                <td>Yes</td>
+                <td>Yes, all</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Removes table structure</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>WHERE</code> allowed</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Can remove selected rows</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Table remains</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Typically faster for removing all rows</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>DELETE FROM employees
+        WHERE department = 'HR';</code></pre>
+
+        <p>removes only HR employees.</p>
+
+        <pre><code>TRUNCATE TABLE employees;</code></pre>
+
+        <p>removes all employees.</p>
+
+        <pre><code>DROP TABLE employees;</code></pre>
+
+        <p>removes the entire table.</p>
+
+        <p><strong>RENAME</strong></p>
+
+        <p>Used to rename a table.</p>
+
+        <pre><code>RENAME TABLE employees TO company_employees;</code></pre>
+
+        <p><strong>Interview Answer — DDL</strong></p>
+
+        <blockquote>
+          <p><strong>DDL stands for Data Definition Language. It is used to create and modify the structure of database objects. Common DDL commands are CREATE, ALTER, DROP, TRUNCATE, and RENAME.</strong></p>
+        </blockquote>
+
+        <h3>2. DML — Data Manipulation Language</h3>
+
+        <p><strong>DML is used to insert, modify, and delete data stored inside tables.</strong></p>
+
+        <p>The important DML statements are:</p>
+
+        <ul>
+          <li><code>INSERT</code></li>
+          <li><code>UPDATE</code></li>
+          <li><code>DELETE</code></li>
+        </ul>
+
+        <p><strong>INSERT</strong></p>
+
+        <p>Used to add records to a table.</p>
+
+        <pre><code>INSERT INTO employees
+        (employee_id, name, salary)
+        VALUES
+        (101, 'Amit', 50000);</code></pre>
+
+        <p>Multiple rows can also be inserted:</p>
+
+        <pre><code>INSERT INTO employees
+        (employee_id, name, salary)
+        VALUES
+        (102, 'Priya', 60000),
+        (103, 'Rahul', 55000);</code></pre>
+
+        <p><strong>UPDATE</strong></p>
+
+        <p>Used to modify existing records.</p>
+
+        <pre><code>UPDATE employees
+        SET salary = 65000
+        WHERE employee_id = 102;</code></pre>
+
+        <p>This changes Priya's salary to <code>65000</code>.</p>
+
+        <p><strong>Important Warning</strong></p>
+
+        <p>Always be careful with the <code>WHERE</code> clause.</p>
+
+        <pre><code>UPDATE employees
+        SET salary = 65000;</code></pre>
+
+        <p>This updates <strong>every employee's salary</strong>.</p>
+
+        <p><strong>DELETE</strong></p>
+
+        <p>Used to remove records from a table.</p>
+
+        <pre><code>DELETE FROM employees
+        WHERE employee_id = 103;</code></pre>
+
+        <p>Only employee <code>103</code> is deleted.</p>
+
+        <p>Without a <code>WHERE</code> condition:</p>
+
+        <pre><code>DELETE FROM employees;</code></pre>
+
+        <p>all rows are deleted, but the table itself remains.</p>
+
+        <p><strong>Interview Answer — DML</strong></p>
+
+        <blockquote>
+          <p><strong>DML stands for Data Manipulation Language. It is used to manipulate the data stored in database tables. The main DML commands are INSERT, UPDATE, and DELETE.</strong></p>
+        </blockquote>
+
+        <h3>3. DQL — Data Query Language</h3>
+
+        <p><strong>DQL is used to retrieve data from a database.</strong></p>
+
+        <p>The primary statement is:</p>
+
+        <pre><code>SELECT</code></pre>
+
+        <p><strong>Example</strong></p>
+
+        <pre><code>SELECT *
+        FROM employees;</code></pre>
+
+        <p>Retrieve specific columns:</p>
+
+        <pre><code>SELECT name, salary
+        FROM employees;</code></pre>
+
+        <p>With filtering:</p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+        WHERE salary &gt; 50000;</code></pre>
+
+        <p>With sorting:</p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+        ORDER BY salary DESC;</code></pre>
+
+        <p>With aggregation:</p>
+
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+        FROM employees
+        GROUP BY department;</code></pre>
+
+        <p><strong>Important Point</strong></p>
+
+        <p>You will sometimes see <code>SELECT</code> described simply as part of SQL rather than as a separate DQL category. In interview discussions, however, <strong>DQL = SELECT</strong> is a common classification.</p>
+
+        <p><strong>Interview Answer — DQL</strong></p>
+
+        <blockquote>
+          <p><strong>DQL stands for Data Query Language and is used to retrieve data from a database. The main command is SELECT, which can be combined with clauses such as WHERE, GROUP BY, HAVING, and ORDER BY.</strong></p>
+        </blockquote>
+
+        <h3>4. DCL — Data Control Language</h3>
+
+        <p><strong>DCL is used to control access and permissions on database objects.</strong></p>
+
+        <p>The main commands are:</p>
+
+        <ul>
+          <li><code>GRANT</code></li>
+          <li><code>REVOKE</code></li>
+        </ul>
+
+        <p>These are especially important for <strong>database security and user management</strong>.</p>
+
+        <p><strong>GRANT</strong></p>
+
+        <p>Used to give privileges to a user.</p>
+
+        <pre><code>GRANT SELECT
+        ON company_db.employees
+        TO 'analyst'@'localhost';</code></pre>
+
+        <p>This gives the user permission to perform <code>SELECT</code> operations on the <code>employees</code> table.</p>
+
+        <p>Multiple privileges can be granted:</p>
+
+        <pre><code>GRANT SELECT, INSERT, UPDATE
+        ON company_db.employees
+        TO 'analyst'@'localhost';</code></pre>
+
+        <p><strong>REVOKE</strong></p>
+
+        <p>Used to remove previously granted privileges.</p>
+
+        <pre><code>REVOKE INSERT
+        ON company_db.employees
+        FROM 'analyst'@'localhost';</code></pre>
+
+        <p>Now the user no longer has the <code>INSERT</code> privilege on that table.</p>
+
+        <p><strong>Common MySQL Privileges</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Privilege</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>SELECT</code></td>
+                <td>Read data</td>
+              </tr>
+              <tr>
+                <td><code>INSERT</code></td>
+                <td>Add data</td>
+              </tr>
+              <tr>
+                <td><code>UPDATE</code></td>
+                <td>Modify data</td>
+              </tr>
+              <tr>
+                <td><code>DELETE</code></td>
+                <td>Delete data</td>
+              </tr>
+              <tr>
+                <td><code>CREATE</code></td>
+                <td>Create objects</td>
+              </tr>
+              <tr>
+                <td><code>ALTER</code></td>
+                <td>Modify objects</td>
+              </tr>
+              <tr>
+                <td><code>DROP</code></td>
+                <td>Delete objects</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Interview Answer — DCL</strong></p>
+
+        <blockquote>
+          <p><strong>DCL stands for Data Control Language. It is used to control user access and permissions on database objects. The main commands are GRANT and REVOKE.</strong></p>
+        </blockquote>
+
+        <h3>5. TCL — Transaction Control Language</h3>
+
+        <p><strong>TCL is used to manage transactions in a database.</strong></p>
+
+        <p>A <strong>transaction</strong> is a logical group of SQL operations that should be treated as one unit of work.</p>
+
+        <p>Important TCL commands include:</p>
+
+        <ul>
+          <li><code>COMMIT</code></li>
+          <li><code>ROLLBACK</code></li>
+          <li><code>SAVEPOINT</code></li>
+        </ul>
+
+        <p><strong>COMMIT</strong></p>
+
+        <p>Makes the changes made in the current transaction permanent.</p>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>START TRANSACTION;
+
+        UPDATE employees
+        SET salary = salary + 5000
+        WHERE department = 'IT';
+
+        COMMIT;</code></pre>
+
+        <p>After <code>COMMIT</code>, the changes are permanently saved.</p>
+
+        <p><strong>ROLLBACK</strong></p>
+
+        <p>Undoes changes made during the current transaction that have not yet been committed.</p>
+
+        <pre><code>START TRANSACTION;
+
+        UPDATE employees
+        SET salary = salary + 5000
+        WHERE department = 'IT';
+
+        ROLLBACK;</code></pre>
+
+        <p>The salary changes are undone.</p>
+
+        <p><strong>Important</strong></p>
+
+        <p><code>ROLLBACK</code> works for changes that are still part of the current transaction and have not been committed.</p>
+
+        <p><strong>SAVEPOINT</strong></p>
+
+        <p>Creates a point inside a transaction to which you can roll back.</p>
+
+        <pre><code>START TRANSACTION;
+
+        UPDATE employees
+        SET salary = salary + 5000
+        WHERE department = 'IT';
+
+        SAVEPOINT salary_update;
+
+        UPDATE employees
+        SET salary = salary + 3000
+        WHERE department = 'HR';
+
+        ROLLBACK TO salary_update;
+
+        COMMIT;</code></pre>
+
+        <p><strong>What happens?</strong></p>
+
+        <pre><code>START TRANSACTION
+              ↓
+        IT salary +5000
+              ↓
+        SAVEPOINT
+              ↓
+        HR salary +3000
+              ↓
+        ROLLBACK TO salary_update
+              ↓
+        HR salary change undone
+              ↓
+        IT salary change remains
+              ↓
+        COMMIT</code></pre>
+
+        <h3>Why Are Transactions Important?</h3>
+
+        <p>Consider a bank transfer:</p>
+
+        <pre><code>Account A → ₹10,000
+        Account B → ₹5,000</code></pre>
+
+        <p>Suppose we transfer ₹2,000 from A to B.</p>
+
+        <p>Two operations are required:</p>
+
+        <pre><code>UPDATE accounts
+        SET balance = balance - 2000
+        WHERE account_id = 1;
+
+        UPDATE accounts
+        SET balance = balance + 2000
+        WHERE account_id = 2;</code></pre>
+
+        <p>Both operations should succeed.</p>
+
+        <p>If the first operation succeeds but the second fails, the database should not leave the system in an inconsistent state.</p>
+
+        <p>That's where a transaction helps:</p>
+
+        <pre><code>START TRANSACTION;
+
+        UPDATE accounts
+        SET balance = balance - 2000
+        WHERE account_id = 1;
+
+        UPDATE accounts
+        SET balance = balance + 2000
+        WHERE account_id = 2;
+
+        COMMIT;</code></pre>
+
+        <p>If something goes wrong:</p>
+
+        <pre><code>ROLLBACK;</code></pre>
+
+        <p>This is closely related to the <strong>ACID properties of transactions</strong>, which are important for SQL interviews.</p>
+
+        <h3>DDL vs DML vs DQL vs DCL vs TCL</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Full Form</th>
+                <th>Main Purpose</th>
+                <th>Common Commands</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>DDL</strong></td>
+                <td>Data Definition Language</td>
+                <td>Define/modify structure</td>
+                <td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code>, <code>RENAME</code></td>
+              </tr>
+              <tr>
+                <td><strong>DML</strong></td>
+                <td>Data Manipulation Language</td>
+                <td>Modify stored data</td>
+                <td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>
+              </tr>
+              <tr>
+                <td><strong>DQL</strong></td>
+                <td>Data Query Language</td>
+                <td>Retrieve data</td>
+                <td><code>SELECT</code></td>
+              </tr>
+              <tr>
+                <td><strong>DCL</strong></td>
+                <td>Data Control Language</td>
+                <td>Control permissions</td>
+                <td><code>GRANT</code>, <code>REVOKE</code></td>
+              </tr>
+              <tr>
+                <td><strong>TCL</strong></td>
+                <td>Transaction Control Language</td>
+                <td>Manage transactions</td>
+                <td><code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Most Important Interview Differences</h3>
+
+        <p><strong>DDL vs DML</strong></p>
+
+        <p><strong>DDL changes the structure.</strong></p>
+
+        <pre><code>ALTER TABLE employees
+        ADD email VARCHAR(100);</code></pre>
+
+        <p><strong>DML changes the data.</strong></p>
+
+        <pre><code>UPDATE employees
+        SET salary = 60000
+        WHERE employee_id = 101;</code></pre>
+
+        <p><strong>Think:</strong></p>
+
+        <blockquote>
+          <p><strong>DDL → What does the table look like?</strong></p>
+          <p><strong>DML → What data is inside the table?</strong></p>
+        </blockquote>
+
+        <p><strong>DELETE vs TRUNCATE vs DROP</strong></p>
+
+        <p>This is one of the <strong>most frequently asked SQL interview questions</strong>.</p>
+
+        <pre><code>DELETE
+          ↓
+        Removes rows
+
+        TRUNCATE
+          ↓
+        Removes all rows but keeps table
+
+        DROP
+          ↓
+        Removes table itself</code></pre>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>DELETE FROM employees
+        WHERE employee_id = 101;</code></pre>
+
+        <pre><code>TRUNCATE TABLE employees;</code></pre>
+
+        <pre><code>DROP TABLE employees;</code></pre>
+
+        <p><strong>DCL vs TCL</strong></p>
+
+        <p><strong>DCL:</strong></p>
+
+        <blockquote>
+          <p>Controls <strong>who can access what</strong>.</p>
+        </blockquote>
+
+        <pre><code>GRANT SELECT ...
+        REVOKE SELECT ...</code></pre>
+
+        <p><strong>TCL:</strong></p>
+
+        <blockquote>
+          <p>Controls <strong>what happens to changes within a transaction</strong>.</p>
+        </blockquote>
+
+        <pre><code>COMMIT;
+        ROLLBACK;
+        SAVEPOINT;</code></pre>
+
+        <h3>Easy Way to Remember</h3>
+
+        <pre><code>        SQL
+                │
+        ┌───────┼────────┬────────┬────────┐
+        ↓       ↓        ↓        ↓        ↓
+        DDL     DML      DQL      DCL      TCL
+        │       │        │        │        │
+        Structure Data   Query   Access  Transaction
+        │       │        │        │        │
+        CREATE  INSERT  SELECT   GRANT   COMMIT
+        ALTER   UPDATE           REVOKE  ROLLBACK
+        DROP    DELETE                   SAVEPOINT
+        TRUNCATE</code></pre>
+
+        <h3>Interview-Ready Answer</h3>
+
+        <p>If an interviewer asks <strong>"What are the different types of SQL commands?"</strong>, a strong answer would be:</p>
+
+        <blockquote>
+          <p><strong>SQL commands are commonly classified into five categories: DDL, DML, DQL, DCL, and TCL. DDL is used to define and modify database structures, with commands such as CREATE, ALTER, DROP, and TRUNCATE. DML is used to modify the data using INSERT, UPDATE, and DELETE. DQL is mainly used to retrieve data using SELECT. DCL manages user permissions using GRANT and REVOKE. TCL manages transactions using COMMIT, ROLLBACK, and SAVEPOINT.</strong></p>
+        </blockquote>
+
+        <p><strong>⭐ Must Remember for Interviews</strong></p>
+
+        <pre><code>DDL → Structure
+        DML → Data modification
+        DQL → Data retrieval
+        DCL → Permissions
+        TCL → Transactions</code></pre>
+      `},
+
+      {
+        id: "WHERE",
+        name: "WHERE",
+        theory:`
+        <p>The <strong><code>WHERE</code> clause</strong> is used to <strong>filter rows based on a condition</strong>.</p>
+
+        <p><strong>Syntax</strong></p>
+
+        <pre><code>SELECT column1, column2
+        FROM table_name
+        WHERE condition;</code></pre>
+
+        <p><strong>Example</strong></p>
+
+        <pre><code>SELECT *
+        FROM employees
+        WHERE salary &gt; 50000;</code></pre>
+
+        <p>This returns employees whose salary is greater than <code>50,000</code>.</p>
+
+        <p><strong>Common Operators</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Operator</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>=</code></td>
+                <td>Equal</td>
+              </tr>
+              <tr>
+                <td><code>!=</code> / <code>&lt;&gt;</code></td>
+                <td>Not equal</td>
+              </tr>
+              <tr>
+                <td><code>&gt;</code></td>
+                <td>Greater than</td>
+              </tr>
+              <tr>
+                <td><code>&lt;</code></td>
+                <td>Less than</td>
+              </tr>
+              <tr>
+                <td><code>&gt;=</code></td>
+                <td>Greater than or equal</td>
+              </tr>
+              <tr>
+                <td><code>&lt;=</code></td>
+                <td>Less than or equal</td>
+              </tr>
+              <tr>
+                <td><code>AND</code></td>
+                <td>Both conditions must be true</td>
+              </tr>
+              <tr>
+                <td><code>OR</code></td>
+                <td>At least one condition must be true</td>
+              </tr>
+              <tr>
+                <td><code>IN</code></td>
+                <td>Matches any value in a list</td>
+              </tr>
+              <tr>
+                <td><code>BETWEEN</code></td>
+                <td>Checks a range</td>
+              </tr>
+              <tr>
+                <td><code>LIKE</code></td>
+                <td>Pattern matching</td>
+              </tr>
+              <tr>
+                <td><code>IS NULL</code></td>
+                <td>Checks for NULL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Examples</strong></p>
+
+        <p><strong>AND</strong></p>
+
+        <pre><code>SELECT *
+        FROM employees
+        WHERE department = 'IT'
+        AND salary &gt; 50000;</code></pre>
+
+        <p><strong>IN</strong></p>
+
+        <pre><code>SELECT *
+        FROM employees
+        WHERE department IN ('IT', 'HR');</code></pre>
+
+        <p><strong>BETWEEN</strong></p>
+
+        <pre><code>SELECT *
+        FROM employees
+        WHERE salary BETWEEN 40000 AND 70000;</code></pre>
+
+        <p><strong>LIKE</strong></p>
+
+        <pre><code>SELECT *
+        FROM employees
+        WHERE name LIKE 'A%';</code></pre>
+
+        <p><strong>NULL</strong></p>
+
+        <pre><code>SELECT *
+        FROM employees
+        WHERE department IS NULL;</code></pre>
+
+        <p><strong>WHERE vs HAVING</strong></p>
+
+        <ul>
+          <li><strong>WHERE</strong> → filters individual rows</li>
+          <li><strong>HAVING</strong> → filters groups after <code>GROUP BY</code></li>
+        </ul>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>The WHERE clause is used to filter rows based on a specified condition. It can be used with SELECT, UPDATE, and DELETE statements. Common operators used with WHERE include comparison operators, AND, OR, IN, BETWEEN, LIKE, and IS NULL.</strong></p>
+        </blockquote>
+      `},
+
+      {
+        id: "ORDERBY",
+        name: "ORDER BY",
+        theory:`
+        <p>The <strong><code>ORDER BY</code> clause</strong> is used to <strong>sort the result of a query</strong> based on one or more columns.</p>
+
+        <p><strong>Syntax</strong></p>
+
+        <pre><code>SELECT column1, column2
+        FROM table_name
+        ORDER BY column1 [ASC|DESC];</code></pre>
+
+        <ul>
+          <li><code>ASC</code> → Ascending order (<strong>default</strong>)</li>
+          <li><code>DESC</code> → Descending order</li>
+        </ul>
+
+        <p><strong>Example</strong></p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+        ORDER BY salary DESC;</code></pre>
+
+        <p>This displays employees from <strong>highest salary to lowest salary</strong>.</p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+        ORDER BY salary ASC;</code></pre>
+
+        <p>This displays employees from <strong>lowest salary to highest salary</strong>.</p>
+
+        <p><strong>ORDER BY with Column Position</strong></p>
+
+        <p>MySQL also allows:</p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+        ORDER BY 2 DESC;</code></pre>
+
+        <p>Here, <code>2</code> refers to the second column in the <code>SELECT</code> list (<code>salary</code>).</p>
+
+        <p>However, using <strong>column names is generally clearer and safer</strong>.</p>
+      `},
+
+      {
+        id: "Aggregatefunctions",
+        name: "Aggregate functions",
+        theory:`
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Purpose</th>
+                    <th>Syntax</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>COUNT()</code></td>
+                    <td>Counts rows or non-NULL values</td>
+                    <td><code>COUNT(column)</code></td>
+                    <td><code>COUNT(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>COUNT(*)</code></td>
+                    <td>Counts all rows</td>
+                    <td><code>COUNT(*)</code></td>
+                    <td><code>COUNT(*)</code></td>
+                </tr>
+                <tr>
+                    <td><code>COUNT(DISTINCT)</code></td>
+                    <td>Counts unique non-NULL values</td>
+                    <td><code>COUNT(DISTINCT column)</code></td>
+                    <td><code>COUNT(DISTINCT department)</code></td>
+                </tr>
+                <tr>
+                    <td><code>SUM()</code></td>
+                    <td>Calculates the total</td>
+                    <td><code>SUM(column)</code></td>
+                    <td><code>SUM(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>AVG()</code></td>
+                    <td>Calculates the average</td>
+                    <td><code>AVG(column)</code></td>
+                    <td><code>AVG(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>MIN()</code></td>
+                    <td>Returns the minimum value</td>
+                    <td><code>MIN(column)</code></td>
+                    <td><code>MIN(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>MAX()</code></td>
+                    <td>Returns the maximum value</td>
+                    <td><code>MAX(column)</code></td>
+                    <td><code>MAX(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>GROUP_CONCAT()</code></td>
+                    <td>Combines values from multiple rows into a single string</td>
+                    <td><code>GROUP_CONCAT(column)</code></td>
+                    <td><code>GROUP_CONCAT(name)</code></td>
+                </tr>
+                <tr>
+                    <td><code>STDDEV()</code></td>
+                    <td>Calculates standard deviation</td>
+                    <td><code>STDDEV(column)</code></td>
+                    <td><code>STDDEV(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>STDDEV_POP()</code></td>
+                    <td>Calculates population standard deviation</td>
+                    <td><code>STDDEV_POP(column)</code></td>
+                    <td><code>STDDEV_POP(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>STDDEV_SAMP()</code></td>
+                    <td>Calculates sample standard deviation</td>
+                    <td><code>STDDEV_SAMP(column)</code></td>
+                    <td><code>STDDEV_SAMP(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>VARIANCE()</code></td>
+                    <td>Calculates population variance</td>
+                    <td><code>VARIANCE(column)</code></td>
+                    <td><code>VARIANCE(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>VAR_POP()</code></td>
+                    <td>Calculates population variance</td>
+                    <td><code>VAR_POP(column)</code></td>
+                    <td><code>VAR_POP(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>VAR_SAMP()</code></td>
+                    <td>Calculates sample variance</td>
+                    <td><code>VAR_SAMP(column)</code></td>
+                    <td><code>VAR_SAMP(salary)</code></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      `},
+
+      {
+        id: "GROUPBY",
+        name: "GROUP BY",
+        theory:`
+        <p>The <strong><code>GROUP BY</code> clause</strong> is used to <strong>group rows having the same values</strong> in one or more columns. It is mainly used with <strong>aggregate functions</strong> such as <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>, <code>MIN()</code>, and <code>MAX()</code>.</p>
+
+        <p><strong>Syntax</strong></p>
+
+        <pre><code>SELECT column, AGGREGATE_FUNCTION(column)
+        FROM table_name
+        GROUP BY column;</code></pre>
+
+        <p><strong>Example</strong></p>
+
+        <p>Suppose we have an <code>employees</code> table:</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>department</th>
+                <th>salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Amit</td>
+                <td>IT</td>
+                <td>50000</td>
+              </tr>
+              <tr>
+                <td>Priya</td>
+                <td>HR</td>
+                <td>45000</td>
+              </tr>
+              <tr>
+                <td>Rahul</td>
+                <td>IT</td>
+                <td>60000</td>
+              </tr>
+              <tr>
+                <td>Neha</td>
+                <td>HR</td>
+                <td>55000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>To find the <strong>average salary of each department</strong>:</p>
+
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+        FROM employees
+        GROUP BY department;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>department</th>
+                <th>avg_salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HR</td>
+                <td>50000</td>
+              </tr>
+              <tr>
+                <td>IT</td>
+                <td>55000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Here, employees are grouped by <code>department</code>, and <code>AVG()</code> calculates the average salary for each group.</p>
+
+        <p><strong>Common Aggregate Functions with GROUP BY</strong></p>
+
+        <pre><code>-- Number of employees in each department
+        SELECT department, COUNT(*) AS employee_count
+        FROM employees
+        GROUP BY department;</code></pre>
+
+        <pre><code>-- Total salary by department
+        SELECT department, SUM(salary) AS total_salary
+        FROM employees
+        GROUP BY department;</code></pre>
+
+        <pre><code>-- Highest salary in each department
+        SELECT department, MAX(salary) AS highest_salary
+        FROM employees
+        GROUP BY department;</code></pre>
+
+        <p><strong>GROUP BY with Multiple Columns</strong></p>
+
+        <p>You can group by more than one column.</p>
+
+        <pre><code>SELECT department, job_role, COUNT(*) AS employee_count
+        FROM employees
+        GROUP BY department, job_role;</code></pre>
+
+        <p>This creates groups based on the <strong>combination of department and job role</strong>.</p>
+
+        <p><strong>GROUP BY vs ORDER BY</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>GROUP BY</th>
+                <th>ORDER BY</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Groups rows</td>
+                <td>Sorts rows</td>
+              </tr>
+              <tr>
+                <td>Commonly used with aggregate functions</td>
+                <td>Used to arrange results</td>
+              </tr>
+              <tr>
+                <td>Can reduce multiple rows into summary rows</td>
+                <td>Does not reduce the number of rows</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+        FROM employees
+        GROUP BY department
+        ORDER BY avg_salary DESC;</code></pre>
+
+        <p>Here:</p>
+
+        <ol>
+          <li><strong>GROUP BY</strong> → calculates average salary for each department.</li>
+          <li><strong>ORDER BY</strong> → sorts departments by average salary from highest to lowest.</li>
+        </ol>
+
+        <p><strong>GROUP BY vs HAVING</strong></p>
+
+        <ul>
+          <li><strong><code>GROUP BY</code></strong> → creates groups</li>
+          <li><strong><code>HAVING</code></strong> → filters those groups</li>
+        </ul>
+
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+        FROM employees
+        GROUP BY department
+        HAVING AVG(salary) &gt; 50000;</code></pre>
+
+        <p>This returns only departments whose average salary is greater than <code>50,000</code>.</p>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>GROUP BY is used to group rows with the same values and is commonly used with aggregate functions such as COUNT, SUM, AVG, MIN, and MAX. For example, we can use GROUP BY department to calculate the average salary or number of employees for each department.</strong></p>
+        </blockquote>
+      `},
+
+      {
+        id: "HAVING",
+        name: "HAVING",
+        theory:`
+        <p>The <strong><code>HAVING</code> clause</strong> is used to <strong>filter groups after <code>GROUP BY</code></strong>.</p>
+
+        <p>It is mainly used with <strong>aggregate functions</strong> such as <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>, <code>MIN()</code>, and <code>MAX()</code>.</p>
+
+        <p><strong>Syntax</strong></p>
+
+        <pre><code>SELECT column, AGGREGATE_FUNCTION(column)
+        FROM table_name
+        GROUP BY column
+        HAVING condition;</code></pre>
+
+        <p><strong>Example</strong></p>
+
+        <p>Find departments whose <strong>average salary is greater than 50,000</strong>:</p>
+
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+        FROM employees
+        GROUP BY department
+        HAVING AVG(salary) &gt; 50000;</code></pre>
+
+        <p>Here:</p>
+
+        <ol>
+          <li><code>GROUP BY</code> creates groups for each department.</li>
+          <li><code>AVG()</code> calculates the average salary.</li>
+          <li><code>HAVING</code> keeps only departments where the average is greater than <code>50,000</code>.</li>
+        </ol>
+
+        <p><strong>HAVING with COUNT()</strong></p>
+
+        <p>Find departments having <strong>more than 5 employees</strong>:</p>
+
+        <pre><code>SELECT department, COUNT(*) AS employee_count
+        FROM employees
+        GROUP BY department
+        HAVING COUNT(*) &gt; 5;</code></pre>
+
+        <p><strong>HAVING with SUM()</strong></p>
+
+        <p>Find departments where <strong>total salary exceeds 500,000</strong>:</p>
+
+        <pre><code>SELECT department, SUM(salary) AS total_salary
+        FROM employees
+        GROUP BY department
+        HAVING SUM(salary) &gt; 500000;</code></pre>
+
+        <h3>WHERE vs HAVING</h3>
+
+        <p>This is a <strong>very common interview question</strong>.</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>WHERE</th>
+                <th>HAVING</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Filters individual rows</td>
+                <td>Filters groups</td>
+              </tr>
+              <tr>
+                <td>Applied before <code>GROUP BY</code></td>
+                <td>Applied after <code>GROUP BY</code></td>
+              </tr>
+              <tr>
+                <td>Commonly used for row-level conditions</td>
+                <td>Commonly used with aggregate functions</td>
+              </tr>
+              <tr>
+                <td>Example: <code>salary &gt; 50000</code></td>
+                <td>Example: <code>AVG(salary) &gt; 50000</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Example</strong></p>
+
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+        FROM employees
+        WHERE salary &gt; 30000
+        GROUP BY department
+        HAVING AVG(salary) &gt; 50000;</code></pre>
+
+        <p>Here:</p>
+
+        <ol>
+          <li><strong><code>WHERE</code></strong> → first filters out employees whose salary is not greater than <code>30,000</code>.</li>
+          <li><strong><code>GROUP BY</code></strong> → groups the remaining employees by department.</li>
+          <li><strong><code>AVG()</code></strong> → calculates the average salary for each department.</li>
+          <li><strong><code>HAVING</code></strong> → keeps only departments whose calculated average salary is greater than <code>50,000</code>.</li>
+        </ol>
+
+        <p><strong>Interview Answer</strong></p>
+
+        <blockquote>
+          <p><strong>HAVING is used to filter groups after GROUP BY. It is mainly used when we need to apply conditions on aggregate results. For example, if I want to find departments having more than five employees, I would use GROUP BY department followed by HAVING COUNT(*) &gt; 5.</strong></p>
+        </blockquote>
+      `},
+
+      {
+        id: "CASE",
+        name: "CASE",
+        theory:`
+        <p>
+            The <strong>CASE</strong> <strong>expression</strong> is used to implement
+            <strong>conditional logic in SQL</strong>. It works similar to
+            <strong>if-else</strong> or <strong>switch</strong> statements in programming languages.
+        </p>
+
+        <p>
+            For Data Analysts, <strong>CASE</strong> is commonly used to
+            <strong>create categories, classify data, calculate conditional values, and transform columns.</strong>
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>CASE
+            WHEN condition1 THEN result1
+            WHEN condition2 THEN result2
+            ELSE result3
+        END</code></pre>
+
+        <h3>Example 1: Categorizing Salary</h3>
+
+        <pre><code>SELECT name, salary,
+              CASE
+                  WHEN salary &gt;= 80000 THEN 'High'
+                  WHEN salary &gt;= 50000 THEN 'Medium'
+                  ELSE 'Low'
+              END AS salary_category
+        FROM employees;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>salary</th>
+                    <th>salary_category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>90000</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>60000</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>35000</td>
+                    <td>Low</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            The <strong>CASE</strong> expression creates a
+            <strong>new calculated column</strong> called <strong>salary_category</strong>.
+        </p>
+
+        <h3>Example 2: CASE with Multiple Conditions</h3>
+
+        <pre><code>SELECT name, salary,
+              CASE
+                  WHEN salary &gt;= 80000 THEN 'Senior'
+                  WHEN salary &gt;= 50000 THEN 'Mid-Level'
+                  WHEN salary &gt;= 30000 THEN 'Junior'
+                  ELSE 'Entry-Level'
+              END AS employee_level
+        FROM employees;</code></pre>
+
+        <p><strong>Important Point</strong></p>
+
+        <p>
+            <strong>CASE</strong> checks conditions <strong>from top to bottom</strong>
+            and returns the result of the <strong>first matching WHEN</strong>.
+        </p>
+
+        <p>
+            So the <strong>order of conditions matters</strong>.
+        </p>
+
+        <h3>Example 3: CASE with GROUP BY</h3>
+
+        <p>
+            You can use <strong>CASE</strong> to create categories and then group them.
+        </p>
+
+        <pre><code>SELECT
+            CASE
+                WHEN salary &gt;= 50000 THEN 'High Salary'
+                ELSE 'Low Salary'
+            END AS salary_category,
+            COUNT(*) AS employee_count
+        FROM employees
+        GROUP BY salary_category;</code></pre>
+
+        <p>
+            This can be useful when creating <strong>business segments or categories</strong>.
+        </p>
+
+        <h3>Example 4: CASE with Aggregate Functions</h3>
+
+        <p>
+            A very important Data Analyst use case is
+            <strong>conditional aggregation</strong>.
+        </p>
+
+        <p><strong>For example, count employees in the IT department:</strong></p>
+
+        <pre><code>SELECT
+            COUNT(CASE
+                WHEN department = 'IT' THEN 1
+            END) AS it_employees
+        FROM employees;</code></pre>
+
+        <p><strong>Or more commonly in MySQL:</strong></p>
+
+        <pre><code>SELECT
+            SUM(CASE
+                WHEN department = 'IT' THEN 1
+                ELSE 0
+            END) AS it_employees
+        FROM employees;</code></pre>
+
+        <p>
+            This technique is extremely useful for creating
+            <strong>multiple conditional metrics in one query</strong>.
+        </p>
+
+        <h3>Example 5: CASE with UPDATE</h3>
+
+        <p>
+            <strong>CASE</strong> can also be used to conditionally update values.
+        </p>
+
+        <pre><code>UPDATE employees
+        SET salary =
+            CASE
+                WHEN department = 'IT' THEN salary * 1.10
+                WHEN department = 'HR' THEN salary * 1.05
+                ELSE salary
+            END;</code></pre>
+
+        <p><strong>Here:</strong></p>
+
+        <ul>
+            <li>IT employees → 10% increase</li>
+            <li>HR employees → 5% increase</li>
+            <li>Other employees → no change</li>
+        </ul>
+
+        <h3>Simple CASE vs Searched CASE</h3>
+
+        <p>
+            There are <strong>two forms</strong>.
+        </p>
+
+        <h3>1. Simple CASE</h3>
+
+        <p>
+            Compares a column with <strong>specific values</strong>.
+        </p>
+
+        <pre><code>CASE department
+            WHEN 'IT' THEN 'Technology'
+            WHEN 'HR' THEN 'Human Resources'
+            WHEN 'Sales' THEN 'Sales Department'
+            ELSE 'Other'
+        END</code></pre>
+
+        <h3>2. Searched CASE</h3>
+
+        <p>
+            Checks <strong>conditions</strong>.
+        </p>
+
+        <pre><code>CASE
+            WHEN salary &gt;= 80000 THEN 'High'
+            WHEN salary &gt;= 50000 THEN 'Medium'
+            ELSE 'Low'
+        END</code></pre>
+
+        <p>
+            For Data Analyst work, <strong>searched CASE is generally more important</strong>
+            because it allows conditions such as <strong>ranges and multiple criteria</strong>.
+        </p>
+
+        <h3>CASE vs IF</h3>
+
+        <p>
+            MySQL also provides <strong>IF()</strong>:
+        </p>
+
+        <pre><code>SELECT name,
+              IF(salary &gt;= 50000, 'High', 'Low') AS category
+        FROM employees;</code></pre>
+
+        <p>
+            For simple <strong>two-way conditions</strong>, <strong>IF()</strong> can be convenient.
+        </p>
+
+        <p>
+            But <strong>CASE</strong> is more flexible:
+        </p>
+
+        <pre><code>CASE
+            WHEN salary &gt;= 80000 THEN 'High'
+            WHEN salary &gt;= 50000 THEN 'Medium'
+            ELSE 'Low'
+        END</code></pre>
+
+        <h3>Interview Tip</h3>
+
+        <p>
+            In interviews, prefer explaining <strong>CASE</strong> because it is
+            <strong>standard SQL</strong> and works well for multiple conditions.
+        </p>
+
+        <h3>Interview Answer</h3>
+
+        <p>
+            <strong>CASE is used to implement conditional logic in SQL, similar to if-else
+            statements in programming. It evaluates conditions using WHEN and returns
+            the corresponding result using THEN, with ELSE used as the default result.
+            In data analysis, CASE is commonly used for categorization, conditional
+            calculations, segmentation, and conditional aggregation.</strong>
+        </p>
+      `},
+
+      {
+        id: "JOINs",
+        name: "JOINs",
+        theory:`
+        <p>
+            A <strong>JOIN</strong> is used to <strong>combine data from two or more tables</strong>
+            based on a related column between them.
+        </p>
+
+        <p>For example, suppose we have:</p>
+
+        <h3><code>employees</code></h3>
+        
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>employee_id</th>
+                    <th>name</th>
+                    <th>department_id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Amit</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Priya</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>Rahul</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>104</td>
+                    <td>Neha</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3><code>departments</code></h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>department_id</th>
+                    <th>department_name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>HR</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Finance</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            We can combine these tables using <strong>department_id</strong>.
+        </p>
+
+        <h3>Types of Joins</h3>
+
+        <p>
+            The main joins you should know for a <strong>Data Analyst interview</strong> are:
+        </p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Join</th>
+                    <th>What it returns</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>INNER JOIN</strong></td>
+                    <td>Matching rows from both tables</td>
+                </tr>
+                <tr>
+                    <td><strong>LEFT JOIN</strong></td>
+                    <td>All rows from left table + matching rows from right</td>
+                </tr>
+                <tr>
+                    <td><strong>RIGHT JOIN</strong></td>
+                    <td>All rows from right table + matching rows from left</td>
+                </tr>
+                <tr>
+                    <td><strong>CROSS JOIN</strong></td>
+                    <td>Every possible combination of rows</td>
+                </tr>
+                <tr>
+                    <td><strong>SELF JOIN</strong></td>
+                    <td>A table joined with itself</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            <strong>FULL OUTER JOIN is not directly supported in MySQL.</strong>
+            It can be simulated using <strong>LEFT JOIN + RIGHT JOIN</strong>
+            with <strong>UNION</strong> when needed.
+        </p>
+
+        <h3>1. INNER JOIN</h3>
+
+        <img src="https://www.w3schools.com/sql/img_inner_join.png" alt="INNER JOIN diagram">
+
+        <p>
+            Returns <strong>only rows that have a match in both tables</strong>.
+        </p>
+
+        <p><strong>Syntax</strong></p>
+
+        <pre><code>SELECT columns
+        FROM table1
+        INNER JOIN table2
+            ON table1.column = table2.column;</code></pre>
+
+        <p><strong>Example</strong></p>
+
+        <pre><code>SELECT e.name, d.department_name
+        FROM employees e
+        INNER JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>department_name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>HR</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>IT</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            Neha is not included because <strong>department_id = 4</strong>
+            doesn't exist in <strong>departments</strong>.
+        </p>
+
+        <p><strong>Remember</strong></p>
+
+        <pre><code>INNER JOIN
+            ↓
+        Only matching records</code></pre>
+
+        <h3>2. LEFT JOIN</h3>
+
+        <img src="https://www.w3schools.com/sql/img_left_join.png" alt="LEFT JOIN diagram">
+
+        <p>
+            Returns:
+        </p>
+
+        <p>
+            <strong>All rows from the left table + matching rows from the right table.</strong>
+        </p>
+
+        <p>
+            If there is no match, columns from the right table contain <strong>NULL</strong>.
+        </p>
+
+        <pre><code>SELECT e.name, d.department_name
+        FROM employees e
+        LEFT JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>department_name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>HR</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>NULL</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            Neha is included because <strong>employees</strong> is the
+            <strong>left table</strong>.
+        </p>
+
+        <p><strong>Important Interview Use</strong></p>
+
+        <p>
+            If you want to find employees who <strong>don't have a valid/matching department</strong>:
+        </p>
+
+        <pre><code>SELECT e.name
+        FROM employees e
+        LEFT JOIN departments d
+            ON e.department_id = d.department_id
+        WHERE d.department_id IS NULL;</code></pre>
+
+        <p>
+            This is a <strong>very common interview pattern</strong>.
+        </p>
+
+        <h3>3. RIGHT JOIN</h3>
+
+        <img src="https://www.w3schools.com/sql/img_right_join.png" alt="RIGHT JOIN diagram">
+
+        <p>
+            Returns:
+        </p>
+
+        <p>
+            <strong>All rows from the right table + matching rows from the left table.</strong>
+        </p>
+
+        <pre><code>SELECT e.name, d.department_name
+        FROM employees e
+        RIGHT JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>department_name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>HR</td>
+                </tr>
+                <tr>
+                    <td>NULL</td>
+                    <td>Finance</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <p>
+            Finance is included even though no employee belongs to it.
+        </p>
+
+        <p><strong>Easy Rule</strong></p>
+
+        <pre><code>LEFT JOIN
+        → Keep everything from LEFT table
+
+        RIGHT JOIN
+        → Keep everything from RIGHT table</code></pre>
+
+        <p>
+            In practice, analysts often prefer <strong>LEFT JOIN</strong> and swap table order
+            instead of using <strong>RIGHT JOIN</strong>, because it can make queries easier to read.
+        </p>
+
+        <h3>4. CROSS JOIN</h3>
+
+        <img src="https://www.w3schools.com/mysql/img_cross_join.png" alt="CROSS JOIN diagram">
+
+        <p>
+            A <strong>CROSS JOIN</strong> returns the <strong>Cartesian product</strong>.
+        </p>
+
+        <p>
+            Every row from the first table is combined with every row from the second table.
+        </p>
+
+        <pre><code>SELECT e.name, d.department_name
+        FROM employees e
+        CROSS JOIN departments d;</code></pre>
+
+        <p>If:</p>
+
+        <pre><code>employees = 4 rows
+        departments = 3 rows</code></pre>
+
+        <p>Then:</p>
+
+        <pre><code>4 × 3 = 12 rows</code></pre>
+
+        <p>
+            are produced.
+        </p>
+
+        <p><strong>Use Cases</strong></p>
+
+        <ul>
+            <li>Creating all possible combinations</li>
+            <li>Generating scenarios</li>
+            <li>Creating date/category combinations</li>
+            <li>Testing</li>
+        </ul>
+
+        <p>
+            It can produce a <strong>very large number of rows</strong>, so use it carefully.
+        </p>
+
+        <h3>5. SELF JOIN</h3>
+
+        <img src="https://www.devart.com/dbforge/sql/sqlcomplete/images/self-join-schema-small.png" alt="SELF JOIN diagram">
+
+        <p>
+            A <strong>SELF JOIN</strong> is when a table is joined with itself.
+        </p>
+
+        <p>
+            It is useful when rows in the same table have relationships with each other.
+        </p>
+
+        <p>For example:</p>
+
+        <h3><code>employees</code></h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>employee_id</th>
+                    <th>name</th>
+                    <th>manager_id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Amit</td>
+                    <td>NULL</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Priya</td>
+                    <td>101</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>Rahul</td>
+                    <td>101</td>
+                </tr>
+                <tr>
+                    <td>104</td>
+                    <td>Neha</td>
+                    <td>102</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            We want to display each employee along with their manager.
+        </p>
+
+        <pre><code>SELECT
+            e.name AS employee,
+            m.name AS manager
+        FROM employees e
+        LEFT JOIN employees m
+            ON e.manager_id = m.employee_id;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>employee</th>
+                    <th>manager</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>NULL</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>Amit</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>Amit</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>Priya</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            Here, <strong>employees</strong> is used twice with different aliases:
+        </p>
+
+        <pre><code>e → employee
+        m → manager</code></pre>
+
+        <h3>6. FULL OUTER JOIN in MySQL</h3>
+
+        <img src="https://www.w3schools.com/Sql/img_full_outer_join.png" alt="FULL OUTER JOIN diagram">
+
+        <p>
+            MySQL does <strong>not directly support</strong>:
+        </p>
+
+        <pre><code>FULL OUTER JOIN</code></pre>
+
+        <p>
+            A full outer join means:
+        </p>
+
+        <p>
+            <strong>All matching and non-matching rows from both tables.</strong>
+        </p>
+
+        <p>
+            It can be simulated using <strong>LEFT JOIN</strong> and
+            <strong>RIGHT JOIN</strong> with <strong>UNION</strong>.
+        </p>
+
+        <pre><code>SELECT e.name, d.department_name
+        FROM employees e
+        LEFT JOIN departments d
+            ON e.department_id = d.department_id
+
+        UNION
+
+        SELECT e.name, d.department_name
+        FROM employees e
+        RIGHT JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <p>
+            For your interview, simply remember:
+        </p>
+
+        <p>
+            <strong>MySQL does not have native FULL OUTER JOIN syntax.</strong>
+        </p>
+
+        <h3>INNER JOIN vs LEFT JOIN</h3>
+
+        <p>
+            This is one of the <strong>most important JOIN interview questions</strong>.
+        </p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>INNER JOIN</th>
+                    <th>LEFT JOIN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Returns matching rows only</td>
+                    <td>Returns all left-table rows</td>
+                </tr>
+                <tr>
+                    <td>Unmatched rows are removed</td>
+                    <td>Unmatched right-side values become <strong>NULL</strong></td>
+                </tr>
+                <tr>
+                    <td>Useful when you need only matched records</td>
+                    <td>Useful when you don't want to lose records from the main table</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>-- Only employees with matching departments
+        SELECT *
+        FROM employees e
+        INNER JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <pre><code>-- All employees, even without a matching department
+        SELECT *
+        FROM employees e
+        LEFT JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <h3>JOIN with Multiple Tables</h3>
+
+        <p>
+            You can join more than two tables.
+        </p>
+
+        <pre><code>SELECT
+            e.name,
+            d.department_name,
+            p.project_name
+        FROM employees e
+        JOIN departments d
+            ON e.department_id = d.department_id
+        JOIN projects p
+            ON e.employee_id = p.employee_id;</code></pre>
+
+        <p>
+            The result combines information from:
+        </p>
+
+        <pre><code>employees
+            ↓
+        departments
+            ↓
+        projects</code></pre>
+
+        <p>
+            This is very common in <strong>real-world data analysis</strong>.
+        </p>
+
+        <h3>JOIN + WHERE</h3>
+
+        <p>
+            You can filter the joined result.
+        </p>
+
+        <pre><code>SELECT e.name, d.department_name, e.salary
+        FROM employees e
+        JOIN departments d
+            ON e.department_id = d.department_id
+        WHERE e.salary &gt; 50000;</code></pre>
+
+        <p>
+            This returns employees belonging to a matching department whose salary is above
+            <strong>50,000</strong>.
+        </p>
+
+        <h3>JOIN + GROUP BY</h3>
+
+        <p>
+            You can also aggregate joined data.
+        </p>
+
+        <p>
+            For example, find the number of employees in each department:
+        </p>
+
+        <pre><code>SELECT
+            d.department_name,
+            COUNT(e.employee_id) AS employee_count
+        FROM departments d
+        LEFT JOIN employees e
+            ON d.department_id = e.department_id
+        GROUP BY d.department_id, d.department_name;</code></pre>
+
+        <p>
+            Using <strong>LEFT JOIN</strong> ensures that departments with
+            <strong>zero employees</strong> can also appear.
+        </p>
+
+        <h3>Important Interview Pattern: Find Unmatched Records</h3>
+
+        <p>
+            This pattern is <strong>extremely important</strong>.
+        </p>
+
+        <p><strong>Find departments with no employees:</strong></p>
+
+        <pre><code>SELECT d.department_name
+        FROM departments d
+        LEFT JOIN employees e
+            ON d.department_id = e.department_id
+        WHERE e.employee_id IS NULL;</code></pre>
+
+        <p><strong>Conceptually:</strong></p>
+
+        <pre><code>LEFT JOIN
+            ↓
+        Keep all departments
+            ↓
+        Find rows where employee is NULL
+            ↓
+        Departments without employees</code></pre>
+
+        <h3>Interview Answer</h3>
+
+        <p>
+            If the interviewer asks <strong>"What is a JOIN?"</strong>, you can say:
+        </p>
+
+        <p>
+            <strong>
+                A JOIN is used to combine rows from two or more tables based on a related
+                column. The most commonly used joins are INNER JOIN, LEFT JOIN, RIGHT JOIN,
+                CROSS JOIN, and SELF JOIN. INNER JOIN returns only matching records, while
+                LEFT JOIN returns all records from the left table and matching records from
+                the right table. MySQL does not directly support FULL OUTER JOIN.
+            </strong>
+        </p>
+      `},
+
+      {
+        id: "Subqueries",
+        name: "Subqueries",
+        theory:`
+        <p>
+            A <strong>subquery</strong> is a query written <strong>inside another SQL query</strong>.
+        </p>
+
+        <p>
+            The inner query is called the <strong>subquery</strong>, and the outer query uses its result.
+        </p>
+
+        <h3>Basic Syntax</h3>
+
+        <pre><code>SELECT column
+        FROM table
+        WHERE column operator (
+            SELECT column
+            FROM table
+            WHERE condition
+        );</code></pre>
+
+        <h3>Example</h3>
+
+        <p>
+            Find employees whose salary is <strong>greater than the average salary</strong>:
+        </p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+        WHERE salary &gt; (
+            SELECT AVG(salary)
+            FROM employees
+        );</code></pre>
+
+        <p>Here:</p>
+
+        <pre><code>Inner query → Calculates average salary
+              ↓
+        Outer query → Finds employees earning above that average</code></pre>
+
+        <h3>Types of Subqueries</h3>
+
+        <h3>1. Scalar Subquery</h3>
+
+        <p>
+            Returns <strong>a single value</strong>.
+        </p>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+        WHERE salary &gt; (
+            SELECT AVG(salary)
+            FROM employees
+        );</code></pre>
+
+        <p>
+            <strong>AVG()</strong> returns one value, so this is a scalar subquery.
+        </p>
+
+        <h3>2. Multi-Row Subquery</h3>
+
+        <p>
+            Returns <strong>multiple values</strong>.
+        </p>
+
+        <p>
+            Usually used with <strong>IN</strong>, <strong>ANY</strong>, or <strong>ALL</strong>.
+        </p>
+
+        <p>
+            <strong>Example:</strong> Find employees who work in departments located in Mumbai.
+        </p>
+
+        <pre><code>SELECT name
+        FROM employees
+        WHERE department_id IN (
+            SELECT department_id
+            FROM departments
+            WHERE location = 'Mumbai'
+        );</code></pre>
+
+        <p>
+            The inner query can return <strong>multiple department_id values</strong>.
+        </p>
+
+        <h3>3. Correlated Subquery</h3>
+
+        <p>
+            A <strong>correlated subquery</strong> depends on the current row of the outer query.
+        </p>
+
+        <p>
+            <strong>Example:</strong> Find employees whose salary is greater than the
+            <strong>average salary of their own department</strong>.
+        </p>
+
+        <pre><code>SELECT e.name, e.department_id, e.salary
+        FROM employees e
+        WHERE e.salary &gt; (
+            SELECT AVG(e2.salary)
+            FROM employees e2
+            WHERE e2.department_id = e.department_id
+        );</code></pre>
+
+        <p>
+            The inner query uses:
+        </p>
+
+        <pre><code>e.department_id</code></pre>
+
+        <p>
+            from the outer query.
+        </p>
+
+        <p>
+            Therefore, the subquery is evaluated in relation to <strong>each employee</strong>.
+        </p>
+
+        <h3>Subquery with <code>IN</code></h3>
+
+        <p>
+            Used when the subquery returns <strong>multiple values</strong>.
+        </p>
+
+        <pre><code>SELECT name
+        FROM employees
+        WHERE department_id IN (
+            SELECT department_id
+            FROM departments
+            WHERE location = 'Mumbai'
+        );</code></pre>
+
+        <h3>Subquery with <code>EXISTS</code></h3>
+
+        <p>
+            <strong>EXISTS</strong> checks whether the subquery returns <strong>at least one row</strong>.
+        </p>
+
+        <p>
+            <strong>Example:</strong> Find departments that have at least one employee.
+        </p>
+
+        <pre><code>SELECT department_name
+        FROM departments d
+        WHERE EXISTS (
+            SELECT 1
+            FROM employees e
+            WHERE e.department_id = d.department_id
+        );</code></pre>
+
+        <p>
+            The actual value returned by <strong>SELECT 1</strong> isn't important.
+            <strong>EXISTS</strong> only checks whether a matching row exists.
+        </p>
+
+        <h3>Subquery in FROM</h3>
+
+        <p>
+            A subquery can also be used as a <strong>temporary result set</strong>.
+        </p>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>SELECT department, avg_salary
+        FROM (
+            SELECT department, AVG(salary) AS avg_salary
+            FROM employees
+            GROUP BY department
+        ) AS dept_summary
+        WHERE avg_salary &gt; 50000;</code></pre>
+
+        <p>
+            The inner query first calculates the <strong>average salary for each department</strong>.
+            The outer query then filters those results.
+        </p>
+
+        <p>
+            In MySQL, a subquery in <strong>FROM</strong> must have an <strong>alias</strong>
+            such as <strong>dept_summary</strong>.
+        </p>
+
+        <h3>Subquery vs JOIN</h3>
+
+        <p>
+            This is an <strong>important interview comparison</strong>.
+        </p>
+
+        <h3>Subquery</h3>
+
+        <pre><code>SELECT name
+        FROM employees
+        WHERE department_id IN (
+            SELECT department_id
+            FROM departments
+            WHERE location = 'Mumbai'
+        );</code></pre>
+
+        <h3>JOIN</h3>
+
+        <pre><code>SELECT e.name
+        FROM employees e
+        JOIN departments d
+            ON e.department_id = d.department_id
+        WHERE d.location = 'Mumbai';</code></pre>
+
+        <p>
+            Both can solve <strong>similar problems</strong>.
+        </p>
+
+        <p><strong>General rule:</strong></p>
+
+        <ul>
+            <li>
+                Use a <strong>JOIN</strong> when you need to combine columns/data from multiple tables.
+            </li>
+            <li>
+                Use a <strong>subquery</strong> when you need the result of one query as a
+                condition/input for another query.
+            </li>
+        </ul>
+
+        <p>
+            For performance, don't assume one is always faster; the
+            <strong>optimizer and query structure</strong> matter.
+        </p>
+
+        <h3>Interview Answer</h3>
+
+        <p>
+            <strong>
+                A subquery is a query nested inside another query. It is used when the
+                result of one query is required by another query. Subqueries can return
+                a single value or multiple values, and they can be used with operators
+                such as IN, EXISTS, and comparison operators. A correlated subquery is
+                a special type that depends on the current row of the outer query.
+            </strong>
+        </p>
+      `},
+
+      {
+        id: "CTEs",
+        name: "CTEs",
+        theory:`
+        <p>
+            <strong>CTE (Common Table Expression)</strong> is a temporary named result set
+            that you define using the <strong>WITH</strong> clause and use within a
+            <strong>single SQL statement</strong>.
+        </p>
+
+        <p>
+            CTEs are mainly used to make <strong>complex queries easier to read,
+            understand, and maintain</strong>.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>WITH cte_name AS (
+            SELECT ...
+            FROM ...
+            WHERE ...
+        )
+        SELECT ...
+        FROM cte_name;</code></pre>
+
+        <h3>Example</h3>
+
+        <p>
+            Find employees whose salary is greater than the <strong>average salary</strong>:
+        </p>
+
+        <pre><code>WITH avg_salary AS (
+            SELECT AVG(salary) AS average_salary
+            FROM employees
+        )
+        SELECT name, salary
+        FROM employees
+        WHERE salary &gt; (SELECT average_salary FROM avg_salary);</code></pre>
+
+        <p>Here:</p>
+
+        <pre><code>CTE
+        ↓
+        Calculates average salary
+        ↓
+        Outer query uses that result</code></pre>
+
+        <h3>CTE with GROUP BY</h3>
+
+        <p>
+            Suppose we want to find departments whose <strong>average salary is greater
+            than 50,000</strong>:
+        </p>
+
+        <pre><code>WITH department_salary AS (
+            SELECT
+                department,
+                AVG(salary) AS avg_salary
+            FROM employees
+            GROUP BY department
+        )
+        SELECT department, avg_salary
+        FROM department_salary
+        WHERE avg_salary &gt; 50000;</code></pre>
+
+        <p>
+            The CTE first creates the <strong>department-level summary</strong>, and the
+            outer query filters it.
+        </p>
+
+        <h3>CTE vs Subquery</h3>
+
+        <p>
+            Both can solve similar problems, but CTEs can make
+            <strong>complex queries easier to understand</strong>.
+        </p>
+
+        <h3>Subquery</h3>
+
+        <pre><code>SELECT department, avg_salary
+        FROM (
+            SELECT department, AVG(salary) AS avg_salary
+            FROM employees
+            GROUP BY department
+        ) AS dept_summary
+        WHERE avg_salary &gt; 50000;</code></pre>
+
+        <h3>CTE</h3>
+
+        <pre><code>WITH dept_summary AS (
+            SELECT department, AVG(salary) AS avg_salary
+            FROM employees
+            GROUP BY department
+        )
+        SELECT department, avg_salary
+        FROM dept_summary
+        WHERE avg_salary &gt; 50000;</code></pre>
+
+        <p>
+            The CTE version is generally <strong>more readable</strong>, especially when
+            the query becomes complex.
+        </p>
+
+        <h3>Multiple CTEs</h3>
+
+        <p>
+            You can define <strong>multiple CTEs</strong> in the same query.
+        </p>
+
+        <pre><code>WITH department_salary AS (
+            SELECT
+                department,
+                AVG(salary) AS avg_salary
+            FROM employees
+            GROUP BY department
+        ),
+        department_count AS (
+            SELECT
+                department,
+                COUNT(*) AS employee_count
+            FROM employees
+            GROUP BY department
+        )
+        SELECT
+            ds.department,
+            ds.avg_salary,
+            dc.employee_count
+        FROM department_salary ds
+        JOIN department_count dc
+            ON ds.department = dc.department;</code></pre>
+
+        <p>
+            This is useful for breaking a complex analysis into
+            <strong>logical steps</strong>.
+        </p>
+
+        <h3>Recursive CTE</h3>
+
+        <img src="" alt="Recursive CTE diagram">
+
+        <p>
+            MySQL also supports <strong>recursive CTEs</strong>, which are useful for
+            hierarchical data such as:
+        </p>
+
+        <ul>
+            <li>Employee-manager relationships</li>
+            <li>Organizational structures</li>
+            <li>Category hierarchies</li>
+            <li>Parent-child relationships</li>
+        </ul>
+
+        <p><strong>Basic syntax:</strong></p>
+
+        <pre><code>WITH RECURSIVE cte_name AS (
+            -- Anchor query
+
+            UNION ALL
+
+            -- Recursive query
+        )
+        SELECT *
+        FROM cte_name;</code></pre>
+
+        <p>
+            For a Data Analyst interview, understand the <strong>concept and syntax</strong>,
+            but regular CTEs are usually more important unless the role specifically
+            involves hierarchical data.
+        </p>
+
+        <h3>Important Points</h3>
+
+        <ul>
+            <li>
+                A CTE is defined using <strong>WITH</strong>.
+            </li>
+            <li>
+                It exists only for the <strong>single SQL statement</strong> in which it is defined.
+            </li>
+            <li>
+                It does <strong>not permanently create a table</strong>.
+            </li>
+            <li>
+                You can define <strong>multiple CTEs</strong>.
+            </li>
+            <li>
+                MySQL supports <strong>recursive CTEs</strong> using
+                <strong>WITH RECURSIVE</strong>.
+            </li>
+            <li>
+                CTEs are especially useful for making <strong>complex queries more readable</strong>.
+            </li>
+        </ul>
+
+        <h3>CTE vs Temporary Table</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>CTE</th>
+                    <th>Temporary Table</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Exists only for one SQL statement</td>
+                    <td>Can be used across multiple statements within its session</td>
+                </tr>
+                <tr>
+                    <td>Defined using <code>WITH</code></td>
+                    <td>Created using <code>CREATE TEMPORARY TABLE</code></td>
+                </tr>
+                <tr>
+                    <td>Mainly improves query organization/readability</td>
+                    <td>Useful for storing intermediate results for reuse</td>
+                </tr>
+                <tr>
+                    <td>No explicit table creation required</td>
+                    <td>Explicitly creates a temporary table</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Interview Answer</h3>
+
+        <p>
+            <strong>
+                A CTE, or Common Table Expression, is a temporary named result set
+                defined using the WITH clause. It is available only within the current
+                SQL statement and is mainly used to break complex queries into simpler,
+                more readable steps. MySQL also supports recursive CTEs for hierarchical data.
+            </strong>
+        </p>
+      `},
+
+      {
+        id: "DateFunctions",
+        name: "Date Functions",
+        theory:`
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Purpose</th>
+                    <th>Syntax</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>CURDATE()</code></td>
+                    <td>Returns current date</td>
+                    <td><code>CURDATE()</code></td>
+                    <td><code>2026-09-03</code></td>
+                </tr>
+                <tr>
+                    <td><code>CURRENT_DATE()</code></td>
+                    <td>Returns current date</td>
+                    <td><code>CURRENT_DATE()</code></td>
+                    <td><code>2026-09-03</code></td>
+                </tr>
+                <tr>
+                    <td><code>CURTIME()</code></td>
+                    <td>Returns current time</td>
+                    <td><code>CURTIME()</code></td>
+                    <td><code>21:30:15</code></td>
+                </tr>
+                <tr>
+                    <td><code>CURRENT_TIME()</code></td>
+                    <td>Returns current time</td>
+                    <td><code>CURRENT_TIME()</code></td>
+                    <td><code>21:30:15</code></td>
+                </tr>
+                <tr>
+                    <td><code>NOW()</code></td>
+                    <td>Returns current date and time</td>
+                    <td><code>NOW()</code></td>
+                    <td><code>2026-09-03 21:30:15</code></td>
+                </tr>
+                <tr>
+                    <td><code>CURRENT_TIMESTAMP()</code></td>
+                    <td>Returns current date and time</td>
+                    <td><code>CURRENT_TIMESTAMP()</code></td>
+                    <td><code>2026-09-03 21:30:15</code></td>
+                </tr>
+                <tr>
+                    <td><code>DATE()</code></td>
+                    <td>Extracts date from datetime</td>
+                    <td><code>DATE(datetime)</code></td>
+                    <td><code>2026-09-03</code></td>
+                </tr>
+                <tr>
+                    <td><code>TIME()</code></td>
+                    <td>Extracts time from datetime</td>
+                    <td><code>TIME(datetime)</code></td>
+                    <td><code>21:30:15</code></td>
+                </tr>
+                <tr>
+                    <td><code>YEAR()</code></td>
+                    <td>Extracts year</td>
+                    <td><code>YEAR(date)</code></td>
+                    <td><code>2026</code></td>
+                </tr>
+                <tr>
+                    <td><code>MONTH()</code></td>
+                    <td>Extracts month number</td>
+                    <td><code>MONTH(date)</code></td>
+                    <td><code>9</code></td>
+                </tr>
+                <tr>
+                    <td><code>MONTHNAME()</code></td>
+                    <td>Returns month name</td>
+                    <td><code>MONTHNAME(date)</code></td>
+                    <td><code>September</code></td>
+                </tr>
+                <tr>
+                    <td><code>DAY()</code></td>
+                    <td>Extracts day of month</td>
+                    <td><code>DAY(date)</code></td>
+                    <td><code>3</code></td>
+                </tr>
+                <tr>
+                    <td><code>DAYNAME()</code></td>
+                    <td>Returns weekday name</td>
+                    <td><code>DAYNAME(date)</code></td>
+                    <td><code>Thursday</code></td>
+                </tr>
+                <tr>
+                    <td><code>DAYOFWEEK()</code></td>
+                    <td>Returns weekday number</td>
+                    <td><code>DAYOFWEEK(date)</code></td>
+                    <td><code>5</code></td>
+                </tr>
+                <tr>
+                    <td><code>DAYOFYEAR()</code></td>
+                    <td>Returns day number within year</td>
+                    <td><code>DAYOFYEAR(date)</code></td>
+                    <td><code>246</code></td>
+                </tr>
+                <tr>
+                    <td><code>WEEK()</code></td>
+                    <td>Returns week number</td>
+                    <td><code>WEEK(date)</code></td>
+                    <td><code>35</code></td>
+                </tr>
+                <tr>
+                    <td><code>QUARTER()</code></td>
+                    <td>Returns quarter</td>
+                    <td><code>QUARTER(date)</code></td>
+                    <td><code>3</code></td>
+                </tr>
+                <tr>
+                    <td><code>DATE_FORMAT()</code></td>
+                    <td>Formats a date</td>
+                    <td><code>DATE_FORMAT(date, format)</code></td>
+                    <td><code>03-Sep-2026</code></td>
+                </tr>
+                <tr>
+                    <td><code>STR_TO_DATE()</code></td>
+                    <td>Converts string to date</td>
+                    <td><code>STR_TO_DATE(str, format)</code></td>
+                    <td><code>'2026-09-03'</code></td>
+                </tr>
+                <tr>
+                    <td><code>DATE_ADD()</code></td>
+                    <td>Adds a time interval</td>
+                    <td><code>DATE_ADD(date, INTERVAL value unit)</code></td>
+                    <td>Add 7 days</td>
+                </tr>
+                <tr>
+                    <td><code>DATE_SUB()</code></td>
+                    <td>Subtracts a time interval</td>
+                    <td><code>DATE_SUB(date, INTERVAL value unit)</code></td>
+                    <td>Subtract 1 month</td>
+                </tr>
+                <tr>
+                    <td><code>DATEDIFF()</code></td>
+                    <td>Difference between two dates in days</td>
+                    <td><code>DATEDIFF(date1, date2)</code></td>
+                    <td><code>10</code></td>
+                </tr>
+                <tr>
+                    <td><code>TIMESTAMPDIFF()</code></td>
+                    <td>Difference between dates/times in specified unit</td>
+                    <td><code>TIMESTAMPDIFF(unit, start, end)</code></td>
+                    <td><code>3</code> months</td>
+                </tr>
+                <tr>
+                    <td><code>LAST_DAY()</code></td>
+                    <td>Returns last day of month</td>
+                    <td><code>LAST_DAY(date)</code></td>
+                    <td><code>2026-09-30</code></td>
+                </tr>
+                <tr>
+                    <td><code>EXTRACT()</code></td>
+                    <td>Extracts a date/time component</td>
+                    <td><code>EXTRACT(unit FROM date)</code></td>
+                    <td><code>EXTRACT(YEAR FROM date)</code></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      `},
+
+      {
+        id: "StringFunctions",
+        name: "String Functions",
+        theory:`
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Purpose</th>
+                    <th>Syntax</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>CONCAT()</code></td>
+                    <td>Combines two or more strings</td>
+                    <td><code>CONCAT(str1, str2, ...)</code></td>
+                    <td><code>CONCAT(first_name, last_name)</code></td>
+                </tr>
+                <tr>
+                    <td><code>CONCAT_WS()</code></td>
+                    <td>Combines strings with a separator</td>
+                    <td><code>CONCAT_WS(separator, str1, str2, ...)</code></td>
+                    <td><code>CONCAT_WS(' ', first_name, last_name)</code></td>
+                </tr>
+                <tr>
+                    <td><code>UPPER()</code></td>
+                    <td>Converts text to uppercase</td>
+                    <td><code>UPPER(str)</code></td>
+                    <td><code>UPPER('hello')</code> → <code>HELLO</code></td>
+                </tr>
+                <tr>
+                    <td><code>LOWER()</code></td>
+                    <td>Converts text to lowercase</td>
+                    <td><code>LOWER(str)</code></td>
+                    <td><code>LOWER('HELLO')</code> → <code>hello</code></td>
+                </tr>
+                <tr>
+                    <td><code>LENGTH()</code></td>
+                    <td>Returns string length in bytes</td>
+                    <td><code>LENGTH(str)</code></td>
+                    <td><code>LENGTH('Hello')</code> → <code>5</code></td>
+                </tr>
+                <tr>
+                    <td><code>CHAR_LENGTH()</code></td>
+                    <td>Returns number of characters</td>
+                    <td><code>CHAR_LENGTH(str)</code></td>
+                    <td><code>CHAR_LENGTH('Hello')</code> → <code>5</code></td>
+                </tr>
+                <tr>
+                    <td><code>LEFT()</code></td>
+                    <td>Extracts characters from the left</td>
+                    <td><code>LEFT(str, length)</code></td>
+                    <td><code>LEFT('Database', 4)</code> → <code>Data</code></td>
+                </tr>
+                <tr>
+                    <td><code>RIGHT()</code></td>
+                    <td>Extracts characters from the right</td>
+                    <td><code>RIGHT(str, length)</code></td>
+                    <td><code>RIGHT('Database', 4)</code> → <code>base</code></td>
+                </tr>
+                <tr>
+                    <td><code>SUBSTRING()</code></td>
+                    <td>Extracts part of a string</td>
+                    <td><code>SUBSTRING(str, start, length)</code></td>
+                    <td><code>SUBSTRING('Database', 1, 4)</code> → <code>Data</code></td>
+                </tr>
+                <tr>
+                    <td><code>SUBSTR()</code></td>
+                    <td>Same as <code>SUBSTRING()</code></td>
+                    <td><code>SUBSTR(str, start, length)</code></td>
+                    <td><code>SUBSTR('Database', 1, 4)</code></td>
+                </tr>
+                <tr>
+                    <td><code>TRIM()</code></td>
+                    <td>Removes leading/trailing spaces</td>
+                    <td><code>TRIM(str)</code></td>
+                    <td><code>TRIM(' Amit ')</code> → <code>Amit</code></td>
+                </tr>
+                <tr>
+                    <td><code>LTRIM()</code></td>
+                    <td>Removes leading spaces</td>
+                    <td><code>LTRIM(str)</code></td>
+                    <td><code>LTRIM(' Amit')</code> → <code>Amit</code></td>
+                </tr>
+                <tr>
+                    <td><code>RTRIM()</code></td>
+                    <td>Removes trailing spaces</td>
+                    <td><code>RTRIM(str)</code></td>
+                    <td><code>RTRIM('Amit ')</code> → <code>Amit</code></td>
+                </tr>
+                <tr>
+                    <td><code>REPLACE()</code></td>
+                    <td>Replaces part of a string</td>
+                    <td><code>REPLACE(str, from, to)</code></td>
+                    <td><code>REPLACE('Data Analyst', 'Analyst', 'Engineer')</code></td>
+                </tr>
+                <tr>
+                    <td><code>REVERSE()</code></td>
+                    <td>Reverses a string</td>
+                    <td><code>REVERSE(str)</code></td>
+                    <td><code>REVERSE('Hello')</code> → <code>olleH</code></td>
+                </tr>
+                <tr>
+                    <td><code>INSTR()</code></td>
+                    <td>Finds position of a substring</td>
+                    <td><code>INSTR(str, substring)</code></td>
+                    <td><code>INSTR('Database', 'base')</code> → <code>5</code></td>
+                </tr>
+                <tr>
+                    <td><code>LOCATE()</code></td>
+                    <td>Finds position of a substring</td>
+                    <td><code>LOCATE(substr, str)</code></td>
+                    <td><code>LOCATE('base', 'Database')</code> → <code>5</code></td>
+                </tr>
+                <tr>
+                    <td><code>POSITION()</code></td>
+                    <td>Finds position of a substring</td>
+                    <td><code>POSITION(substr IN str)</code></td>
+                    <td><code>POSITION('base' IN 'Database')</code></td>
+                </tr>
+                <tr>
+                    <td><code>LPAD()</code></td>
+                    <td>Pads string on the left</td>
+                    <td><code>LPAD(str, length, pad)</code></td>
+                    <td><code>LPAD('123', 5, '0')</code> → <code>00123</code></td>
+                </tr>
+                <tr>
+                    <td><code>RPAD()</code></td>
+                    <td>Pads string on the right</td>
+                    <td><code>RPAD(str, length, pad)</code></td>
+                    <td><code>RPAD('123', 5, '0')</code> → <code>12300</code></td>
+                </tr>
+                <tr>
+                    <td><code>LPAD()</code></td>
+                    <td>Adds characters to left until specified length</td>
+                    <td><code>LPAD(str, length, padstr)</code></td>
+                    <td><code>LPAD('45', 5, '0')</code> → <code>00045</code></td>
+                </tr>
+                <tr>
+                    <td><code>RPAD()</code></td>
+                    <td>Adds characters to right until specified length</td>
+                    <td><code>RPAD(str, length, padstr)</code></td>
+                    <td><code>RPAD('45', 5, '0')</code> → <code>45000</code></td>
+                </tr>
+                <tr>
+                    <td><code>STRCMP()</code></td>
+                    <td>Compares two strings</td>
+                    <td><code>STRCMP(str1, str2)</code></td>
+                    <td><code>STRCMP('A', 'B')</code></td>
+                </tr>
+                <tr>
+                    <td><code>ASCII()</code></td>
+                    <td>Returns ASCII value of first character</td>
+                    <td><code>ASCII(str)</code></td>
+                    <td><code>ASCII('A')</code> → <code>65</code></td>
+                </tr>
+                <tr>
+                    <td><code>CHAR()</code></td>
+                    <td>Returns character from ASCII values</td>
+                    <td><code>CHAR(value, ...)</code></td>
+                    <td><code>CHAR(65)</code> → <code>A</code></td>
+                </tr>
+                <tr>
+                    <td><code>FORMAT()</code></td>
+                    <td>Formats a number with commas/decimals</td>
+                    <td><code>FORMAT(number, decimals)</code></td>
+                    <td><code>FORMAT(1234567.89, 2)</code> → <code>1,234,567.89</code></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Common Data Analyst Examples</h3>
+
+        <p><strong>Combine first and last name:</strong></p>
+
+        <pre><code>SELECT CONCAT(first_name, ' ', last_name) AS full_name
+        FROM employees;</code></pre>
+
+        <p><strong>Remove unwanted spaces:</strong></p>
+
+        <pre><code>SELECT TRIM(name) AS cleaned_name
+        FROM employees;</code></pre>
+
+        <p><strong>Standardize names:</strong></p>
+
+        <pre><code>SELECT UPPER(name) AS name
+        FROM employees;</code></pre>
+
+        <p><strong>Extract first 3 characters:</strong></p>
+
+        <pre><code>SELECT LEFT(employee_code, 3) AS prefix
+        FROM employees;</code></pre>
+
+        <p><strong>Replace text:</strong></p>
+
+        <pre><code>SELECT REPLACE(phone, '-', '') AS cleaned_phone
+        FROM employees;</code></pre>
+
+        <p><strong>Find length of names:</strong></p>
+
+        <pre><code>SELECT name, CHAR_LENGTH(name) AS name_length
+        FROM employees;</code></pre>
+
+        <p><strong>Extract part of an email:</strong></p>
+
+        <pre><code>SELECT
+            email,
+            SUBSTRING_INDEX(email, '@', 1) AS username
+        FROM employees;</code></pre>
+
+        <p>
+            <strong>SUBSTRING_INDEX()</strong> is also worth knowing for interviews because
+            it is particularly useful for extracting parts of strings based on a
+            <strong>delimiter</strong>.
+        </p>
+      `},
+
+      {
+        id: "SetOperators",
+        name: "Set Operators",
+        theory:`
+        <p>
+            <strong>Set operators</strong> are used to <strong>combine the results of two or more</strong>
+            <strong><code>SELECT</code></strong> <strong>queries</strong>.
+        </p>
+
+        <p>
+            The main set operators you should know in MySQL are:
+        </p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Purpose</th>
+                    <th>Duplicate Rows</th>
+                    <th>MySQL Support</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>UNION</code></td>
+                    <td>Combines results</td>
+                    <td>Removes duplicates</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td><code>UNION ALL</code></td>
+                    <td>Combines results</td>
+                    <td>Keeps duplicates</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td><code>INTERSECT</code></td>
+                    <td>Returns common rows</td>
+                    <td>Removes duplicates</td>
+                    <td>✅ MySQL 8.0.31+</td>
+                </tr>
+                <tr>
+                    <td><code>EXCEPT</code></td>
+                    <td>Returns rows from first query not in second</td>
+                    <td>Removes duplicates</td>
+                    <td>✅ MySQL 8.0.31+</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>1. UNION</h3>
+
+        <p>
+            Combines the results of two queries and <strong>removes duplicate rows</strong>.
+        </p>
+
+        <pre><code>SELECT name
+        FROM employees_2025
+
+        UNION
+
+        SELECT name
+        FROM employees_2026;</code></pre>
+
+        <p>
+            If both tables contain <strong>Amit</strong>, he appears only <strong>once</strong>.
+        </p>
+
+        <h3>Important</h3>
+
+        <p>
+            For <strong>UNION</strong>, the queries should have:
+        </p>
+
+        <ul>
+            <li><strong>Same number of columns</strong></li>
+            <li><strong>Corresponding columns with compatible data types</strong></li>
+            <li><strong>Columns in the same order</strong></li>
+        </ul>
+
+        <h3>2. UNION ALL</h3>
+
+        <p>
+            Combines results but <strong>keeps duplicate rows</strong>.
+        </p>
+
+        <pre><code>SELECT name
+        FROM employees_2025
+
+        UNION ALL
+
+        SELECT name
+        FROM employees_2026;</code></pre>
+
+        <p>
+            If <strong>Amit</strong> appears in both queries, he appears <strong>twice</strong>.
+        </p>
+
+        <h3>UNION vs UNION ALL</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+          <table>
+            <thead>
+                <tr>
+                    <th><code>UNION</code></th>
+                    <th><code>UNION ALL</code></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Removes duplicates</td>
+                    <td>Keeps duplicates</td>
+                </tr>
+                <tr>
+                    <td>Performs duplicate elimination</td>
+                    <td>No duplicate elimination</td>
+                </tr>
+                <tr>
+                    <td>Generally more processing</td>
+                    <td>Generally faster</td>
+                </tr>
+                <tr>
+                    <td>Use when unique results are required</td>
+                    <td>Use when duplicates are meaningful or should be preserved</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+            <strong>Interview tip:</strong> If you know that the results cannot contain duplicates,
+            <strong>UNION ALL</strong> is often preferable because it avoids unnecessary
+            duplicate elimination.
+        </p>
+
+        <h3>3. INTERSECT</h3>
+
+        <p>
+            Returns only the rows that are <strong>common to both query results</strong>.
+        </p>
+
+        <pre><code>SELECT employee_id
+        FROM employees_2025
+
+        INTERSECT
+
+        SELECT employee_id
+        FROM employees_2026;</code></pre>
+
+        <p>
+            This returns employees who appear in <strong>both years</strong>.
+        </p>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>2025 → 101, 102, 103
+        2026 → 102, 103, 104
+
+        INTERSECT
+              ↓
+              102, 103</code></pre>
+
+        <p>
+            <strong>MySQL supports <code>INTERSECT</code> from MySQL 8.0.31 onward.</strong>
+        </p>
+
+        <h3>4. EXCEPT</h3>
+
+        <p>
+            Returns rows that exist in the <strong>first query but not in the second query</strong>.
+        </p>
+
+        <pre><code>SELECT employee_id
+        FROM employees_2025
+
+        EXCEPT
+
+        SELECT employee_id
+        FROM employees_2026;</code></pre>
+
+        <p>
+            This returns employees who were in <strong>2025 but not in 2026</strong>.
+        </p>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>2025 → 101, 102, 103
+        2026 → 102, 103, 104
+
+        EXCEPT
+              ↓
+              101</code></pre>
+
+        <p>
+            <strong>MySQL supports <code>EXCEPT</code> from MySQL 8.0.31 onward.</strong>
+        </p>
+
+        <h3>Set Operators vs JOIN</h3>
+
+        <p>
+            This is an <strong>important distinction</strong>.
+        </p>
+
+        <h3>Set Operators</h3>
+
+        <p>
+            Combine <strong>results vertically</strong>:
+        </p>
+
+        <pre><code>Query 1
+          ↓
+        Query 2
+          ↓
+        Combined rows</code></pre>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>SELECT name FROM employees_2025
+        UNION
+        SELECT name FROM employees_2026;</code></pre>
+
+        <h3>JOIN</h3>
+
+        <p>
+            Combines <strong>columns horizontally</strong> based on a relationship.
+        </p>
+
+        <pre><code>SELECT e.name, d.department_name
+        FROM employees e
+        JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <h3>Easy Way to Remember</h3>
+
+        <p>
+            <strong>UNION → Add rows</strong>
+        </p>
+
+        <p>
+            <strong>JOIN → Add columns</strong>
+        </p>
+
+        <h3>Important Rules for Set Operators</h3>
+
+        <p>
+            The queries being combined should generally have:
+        </p>
+
+        <h3>1. Same Number of Columns</h3>
+
+        <p><strong>Incorrect:</strong></p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+
+        UNION
+
+        SELECT name
+        FROM employees_backup;</code></pre>
+
+        <p>
+            Different number of columns.
+        </p>
+
+        <h3>2. Compatible Data Types</h3>
+
+        <p>
+            For example:
+        </p>
+
+        <pre><code>INT ↔ INT           ✅
+        VARCHAR ↔ VARCHAR   ✅
+        INT ↔ VARCHAR       ⚠️</code></pre>
+
+        <h3>3. Same Logical Column Order</h3>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+
+        UNION
+
+        SELECT name, salary
+        FROM employees_backup;</code></pre>
+
+        <p>
+            The <strong>first query determines the column names</strong> of the combined result.
+        </p>
+
+        <h3>ORDER BY with UNION</h3>
+
+        <p>
+            If you want to sort the final result, put <strong>ORDER BY at the end</strong>:
+        </p>
+
+        <pre><code>SELECT name, salary
+        FROM employees_2025
+
+        UNION
+
+        SELECT name, salary
+        FROM employees_2026
+
+        ORDER BY salary DESC;</code></pre>
+
+        <p>
+            This sorts the <strong>combined result</strong>, not each individual query.
+        </p>
+
+        <h3>Interview Answer</h3>
+
+        <p>
+            <strong>
+                Set operators are used to combine the results of multiple SELECT queries.
+                The main set operators in MySQL are UNION, UNION ALL, INTERSECT, and EXCEPT.
+                UNION removes duplicates, UNION ALL keeps duplicates, INTERSECT returns common
+                rows, and EXCEPT returns rows present in the first query but not the second.
+                The queries must have compatible column structures.
+            </strong>
+        </p>
+      `},
+
+      {
+        id: "Views",
+        name: "Views",
+        theory:`
+        <p>
+            A <strong>View</strong> is a <strong>virtual table</strong> based on the result
+            of a SQL query.
+        </p>
+
+        <p>
+            It does not normally store the actual data separately. Instead, it stores the
+            <strong>query definition</strong>, and when you query the view, MySQL retrieves
+            the underlying data.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>CREATE VIEW view_name AS
+        SELECT column1, column2
+        FROM table_name
+        WHERE condition;</code></pre>
+
+        <h3>Example</h3>
+
+        <p>
+            Suppose we frequently need details of employees from the IT department.
+        </p>
+
+        <p>
+            Instead of writing this query repeatedly:
+        </p>
+
+        <pre><code>SELECT employee_id, name, salary
+        FROM employees
+        WHERE department = 'IT';</code></pre>
+
+        <p>
+            We can create a view:
+        </p>
+
+        <pre><code>CREATE VIEW it_employees AS
+        SELECT employee_id, name, salary
+        FROM employees
+        WHERE department = 'IT';</code></pre>
+
+        <p>
+            Now we can simply query:
+        </p>
+
+        <pre><code>SELECT *
+        FROM it_employees;</code></pre>
+
+        <h3>Why Use Views?</h3>
+
+        <p>
+            Views are commonly used for:
+        </p>
+
+        <ul>
+            <li><strong>Simplifying complex queries</strong></li>
+            <li><strong>Reusing frequently used queries</strong></li>
+            <li><strong>Restricting access to certain columns/rows</strong></li>
+            <li><strong>Creating a clean layer for reporting and analysis</strong></li>
+            <li><strong>Hiding unnecessary database complexity</strong></li>
+        </ul>
+
+        <p>
+            For example, instead of giving an analyst access to an entire employee table
+            containing sensitive information, you could create a view containing only the
+            columns needed for analysis.
+        </p>
+
+        <h3>View with JOIN</h3>
+
+        <p>
+            Views can also contain <strong>joins</strong>.
+        </p>
+
+        <pre><code>CREATE VIEW employee_details AS
+        SELECT
+            e.employee_id,
+            e.name,
+            d.department_name,
+            e.salary
+        FROM employees e
+        JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <p>Then:</p>
+
+        <pre><code>SELECT *
+        FROM employee_details;</code></pre>
+
+        <p>
+            This makes a <strong>complicated join reusable</strong>.
+        </p>
+
+        <h3>Updating a View</h3>
+
+        <p>
+            Some views can be updated directly.
+        </p>
+
+        <p>
+            For example, a simple view based on a single table may be updatable:
+        </p>
+
+        <pre><code>CREATE VIEW employee_salary AS
+        SELECT employee_id, name, salary
+        FROM employees;</code></pre>
+
+        <p>Then:</p>
+
+        <pre><code>UPDATE employee_salary
+        SET salary = 60000
+        WHERE employee_id = 101;</code></pre>
+
+        <p>
+            The underlying <strong>employees</strong> table may be updated.
+        </p>
+
+        <p>
+            However, <strong>not every view is updatable</strong>. Views involving things
+            such as aggregation, <strong>GROUP BY</strong>, <strong>DISTINCT</strong>,
+            or certain joins/set operations may not be directly updatable.
+        </p>
+
+        <h3>Modify a View</h3>
+
+        <p>
+            Use <strong>CREATE OR REPLACE VIEW</strong>:
+        </p>
+
+        <pre><code>CREATE OR REPLACE VIEW it_employees AS
+        SELECT employee_id, name, salary, email
+        FROM employees
+        WHERE department = 'IT';</code></pre>
+
+        <h3>Delete a View</h3>
+
+        <p>Use:</p>
+
+        <pre><code>DROP VIEW it_employees;</code></pre>
+
+        <p>
+            This removes the view, but <strong>does not delete the underlying table or its data</strong>.
+        </p>
+
+        <h3>View vs Table</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>View</th>
+                    <th>Table</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Virtual table based on a query</td>
+                    <td>Stores actual data</td>
+                </tr>
+                <tr>
+                    <td>Usually doesn't store data separately</td>
+                    <td>Stores data physically</td>
+                </tr>
+                <tr>
+                    <td>Created using <code>CREATE VIEW</code></td>
+                    <td>Created using <code>CREATE TABLE</code></td>
+                </tr>
+                <tr>
+                    <td>Useful for abstraction and reporting</td>
+                    <td>Used to store data</td>
+                </tr>
+                <tr>
+                    <td>Depends on underlying tables</td>
+                    <td>Independent storage structure</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>View vs CTE</h3>
+
+        <p>
+            This is another <strong>useful interview comparison</strong>.
+        </p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>View</th>
+                    <th>CTE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Database object</td>
+                    <td>Temporary query result</td>
+                </tr>
+                <tr>
+                    <td>Stored in the database</td>
+                    <td>Exists only for one SQL statement</td>
+                </tr>
+                <tr>
+                    <td>Can be reused across queries</td>
+                    <td>Generally used within the statement where defined</td>
+                </tr>
+                <tr>
+                    <td>Created using <code>CREATE VIEW</code></td>
+                    <td>Created using <code>WITH</code></td>
+                </tr>
+                <tr>
+                    <td>Useful for reusable reporting logic</td>
+                    <td>Useful for organizing complex queries</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Example</h3>
+
+        <p><strong>CTE:</strong></p>
+
+        <pre><code>WITH it_employees AS (
+            SELECT *
+            FROM employees
+            WHERE department = 'IT'
+        )
+        SELECT *
+        FROM it_employees;</code></pre>
+
+        <p><strong>View:</strong></p>
+
+        <pre><code>CREATE VIEW it_employees AS
+        SELECT *
+        FROM employees
+        WHERE department = 'IT';</code></pre>
+
+        <p>
+            The key difference is that the <strong>CTE is temporary for that statement</strong>,
+            while the <strong>view is a persistent database object</strong>.
+        </p>
+
+        <h3>Interview Answer</h3>
+
+        <p>
+            <strong>
+                A view is a virtual table created from the result of a SQL query. It is
+                mainly used to simplify complex queries, provide reusable reporting logic,
+                and control access to specific data. A view can be queried like a table,
+                but it is based on underlying tables rather than being an independent copy
+                of the data.
+            </strong>
+        </p>
+      `},
+
+      {
+        id: "WindowFunctions",
+        name: "Window Functions",
+        theory:`
+        <p>
+            A <strong>window function</strong> performs a calculation across a set of
+            related rows <strong>without combining those rows into a single row</strong>.
+        </p>
+
+        <p>
+            This is the <strong>key difference from aggregate functions</strong>.
+        </p>
+
+        <h3>Basic Syntax</h3>
+
+        <pre><code>function_name() OVER (
+            [PARTITION BY column]
+            [ORDER BY column]
+        )</code></pre>
+
+        <ul>
+            <li>
+                <strong>OVER()</strong> → defines the window of rows used for the calculation.
+            </li>
+            <li>
+                <strong>PARTITION BY</strong> → divides rows into groups.
+            </li>
+            <li>
+                <strong>ORDER BY</strong> → determines the order within the window.
+            </li>
+        </ul>
+
+        <h3>Example</h3>
+
+        <p>Suppose we have:</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>department</th>
+                    <th>salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>IT</td>
+                    <td>90000</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>IT</td>
+                    <td>70000</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>HR</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>HR</td>
+                    <td>60000</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            To calculate the <strong>average salary of all employees</strong> while still
+            keeping every employee:
+        </p>
+
+        <pre><code>SELECT
+            name,
+            salary,
+            AVG(salary) OVER () AS overall_avg_salary
+        FROM employees;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>salary</th>
+                    <th>overall_avg_salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>90000</td>
+                    <td>75000</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>70000</td>
+                    <td>75000</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>80000</td>
+                    <td>75000</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>60000</td>
+                    <td>75000</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            Unlike <strong>GROUP BY</strong>, the individual rows are
+            <strong>not collapsed</strong>.
+        </p>
+
+        <h3>Main Types of Window Functions</h3>
+
+        <h3>1. Ranking Functions</h3>
+
+        <p>
+            Used to <strong>assign rankings</strong>.
+        </p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>ROW_NUMBER()</code></td>
+                    <td>Unique sequential number</td>
+                </tr>
+                <tr>
+                    <td><code>RANK()</code></td>
+                    <td>Rank with gaps for ties</td>
+                </tr>
+                <tr>
+                    <td><code>DENSE_RANK()</code></td>
+                    <td>Rank without gaps for ties</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>SELECT
+            name,
+            salary,
+            RANK() OVER (ORDER BY salary DESC) AS salary_rank
+        FROM employees;</code></pre>
+
+        <h3>2. Aggregate Window Functions</h3>
+
+        <p>
+            Aggregate functions can also be used as <strong>window functions</strong>.
+        </p>
+
+        <p><strong>Common examples:</strong></p>
+
+        <pre><code>SUM()
+        AVG()
+        COUNT()
+        MIN()
+        MAX()</code></pre>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>SELECT
+            name,
+            department,
+            salary,
+            AVG(salary) OVER (
+                PARTITION BY department
+            ) AS dept_avg_salary
+        FROM employees;</code></pre>
+
+        <p>
+            Now every employee gets the <strong>average salary of their department</strong>
+            without losing the individual employee rows.
+        </p>
+
+        <h3>3. Value/Offset Functions</h3>
+
+        <p>
+            These are useful for <strong>comparing a row with another row</strong>.
+        </p>
+
+        <p><strong>Important functions:</strong></p>
+
+        <ul>
+            <li><code>LAG()</code></li>
+            <li><code>LEAD()</code></li>
+            <li><code>FIRST_VALUE()</code></li>
+            <li><code>LAST_VALUE()</code></li>
+            <li><code>NTH_VALUE()</code></li>
+        </ul>
+
+        <p><strong>Example using <code>LAG()</code>:</strong></p>
+
+        <pre><code>SELECT
+            order_date,
+            sales,
+            LAG(sales) OVER (
+                ORDER BY order_date
+            ) AS previous_day_sales
+        FROM daily_sales;</code></pre>
+
+        <p>
+            This allows you to compare <strong>today's sales with the previous day's sales</strong>.
+        </p>
+
+        <h3>PARTITION BY</h3>
+
+        <p>
+            <strong>PARTITION BY</strong> divides the result into groups, and the window
+            calculation is performed separately within each group.
+        </p>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>SELECT
+            name,
+            department,
+            salary,
+            RANK() OVER (
+                PARTITION BY department
+                ORDER BY salary DESC
+            ) AS dept_rank
+        FROM employees;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>department</th>
+                    <th>salary</th>
+                    <th>dept_rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>IT</td>
+                    <td>90000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>IT</td>
+                    <td>70000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>HR</td>
+                    <td>80000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>HR</td>
+                    <td>60000</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            The ranking <strong>restarts for each department</strong>.
+        </p>
+
+        <h3>Window Function vs GROUP BY</h3>
+
+        <p>
+            This is a <strong>very important interview question</strong>.
+        </p>
+
+        <h3>GROUP BY</h3>
+
+        <p>
+            Combines rows into groups.
+        </p>
+
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+        FROM employees
+        GROUP BY department;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>department</th>
+                    <th>avg_salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IT</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>HR</td>
+                    <td>70000</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            Individual employee rows are <strong>no longer present</strong>.
+        </p>
+
+        <h3>Window Function</h3>
+
+        <p>
+            Calculates the average while <strong>keeping individual rows</strong>.
+        </p>
+
+        <pre><code>SELECT
+            name,
+            department,
+            salary,
+            AVG(salary) OVER (
+                PARTITION BY department
+            ) AS avg_salary
+        FROM employees;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>department</th>
+                    <th>salary</th>
+                    <th>avg_salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>IT</td>
+                    <td>90000</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>IT</td>
+                    <td>70000</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>HR</td>
+                    <td>80000</td>
+                    <td>70000</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>HR</td>
+                    <td>60000</td>
+                    <td>70000</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Easy Rule</h3>
+
+        <p>
+            <strong>GROUP BY → reduces rows</strong>
+        </p>
+
+        <p>
+            <strong>Window function → keeps rows</strong>
+        </p>
+
+        <h3>Window Function vs Aggregate Function</h3>
+
+        <p>An aggregate function by itself:</p>
+
+        <pre><code>SELECT AVG(salary)
+        FROM employees;</code></pre>
+
+        <p>
+            returns <strong>one value</strong>.
+        </p>
+
+        <p>A window function:</p>
+
+        <pre><code>SELECT
+            name,
+            salary,
+            AVG(salary) OVER () AS avg_salary
+        FROM employees;</code></pre>
+
+        <p>
+            returns the average <strong>along with every row</strong>.
+        </p>
+
+        <h3>Common Data Analyst Use Cases</h3>
+
+        <p>
+            Window functions are heavily used for:
+        </p>
+
+        <ul>
+            <li>Ranking employees/products/customers</li>
+            <li>Finding Top-N records per group</li>
+            <li>Running totals</li>
+            <li>Comparing current and previous values</li>
+            <li>Calculating moving averages</li>
+            <li>Finding percentage contribution</li>
+            <li>Finding first/last records</li>
+            <li>Comparing individual values with group averages</li>
+        </ul>
+
+        <h3>Running Total Example</h3>
+
+        <pre><code>SELECT
+            order_date,
+            sales,
+            SUM(sales) OVER (
+                ORDER BY order_date
+            ) AS running_sales
+        FROM daily_sales;</code></pre>
+
+        <h3>Percentage of Total</h3>
+
+        <pre><code>SELECT
+            product,
+            sales,
+            sales * 100.0 /
+                SUM(sales) OVER () AS percentage_of_total
+        FROM sales;</code></pre>
+
+        <h3>Interview Answer</h3>
+
+        <p>
+            <strong>
+                A window function performs a calculation across a set of related rows
+                while keeping the individual rows in the result. It is defined using
+                the OVER clause and can use PARTITION BY and ORDER BY. Common window
+                functions include ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD, and aggregate
+                functions such as SUM and AVG. They are commonly used for ranking,
+                running totals, comparisons, and Top-N analysis.
+            </strong>
+        </p>
+      `},
+
+      {
+        id: "TopNProblems",
+        name: "Top-N Problems",
+        theory:`
+        <p>
+            <strong>Top-N problems</strong> are SQL problems where we need to find the
+            <strong>top N records</strong> based on some ranking or condition.
+        </p>
+
+        <p>
+            They are very common in <strong>Data Analyst interviews</strong>.
+        </p>
+
+        <h3>Simple Examples</h3>
+
+        <ul>
+            <li>Find the <strong>top 5 highest-paid employees</strong></li>
+            <li>Find the <strong>top 3 products by sales</strong></li>
+            <li>Find the <strong>second-highest salary</strong></li>
+            <li>Find the <strong>top 3 employees in each department</strong></li>
+            <li>Find the <strong>top 10 customers by total spending</strong></li>
+        </ul>
+
+        <h3>1. Top N Records Overall</h3>
+
+        <p>
+            For example, find the <strong>top 5 employees by salary</strong>.
+        </p>
+
+        <p>
+            In MySQL, we can use <strong>ORDER BY</strong> with <strong>LIMIT</strong>:
+        </p>
+
+        <pre><code>SELECT employee_id, name, salary
+        FROM employees
+        ORDER BY salary DESC
+        LIMIT 5;</code></pre>
+
+        <p>Here:</p>
+
+        <pre><code>ORDER BY salary DESC → Highest salary first
+        LIMIT 5              → Return only 5 rows</code></pre>
+
+        <p>
+            This is the simplest <strong>Top-N problem</strong>.
+        </p>
+
+        <h3>2. Top N with Ties</h3>
+
+        <p>
+            Suppose salaries are:
+        </p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>90000</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>70000</td>
+                </tr>
+                <tr>
+                    <td>Sneha</td>
+                    <td>60000</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            If we ask for the <strong>top 2 salaries</strong>, there are actually
+            <strong>3 employees</strong> involved because Priya and Rahul have the same
+            second-highest salary.
+        </p>
+
+        <p>
+            <strong>LIMIT 2</strong> simply returns two rows:
+        </p>
+
+        <pre><code>SELECT name, salary
+        FROM employees
+        ORDER BY salary DESC
+        LIMIT 2;</code></pre>
+
+        <p>
+            It does <strong>not handle ties in the ranking sense</strong>.
+        </p>
+
+        <p>
+            For tie-aware problems, <strong>window functions</strong> such as
+            <strong>DENSE_RANK()</strong> are more appropriate.
+        </p>
+
+        <pre><code>SELECT name, salary
+        FROM (
+            SELECT
+                name,
+                salary,
+                DENSE_RANK() OVER (ORDER BY salary DESC) AS salary_rank
+            FROM employees
+        ) AS ranked
+        WHERE salary_rank &lt;= 2;</code></pre>
+
+        <p>
+            This returns everyone with the <strong>top 2 distinct salary ranks</strong>.
+        </p>
+
+        <h3>3. Top N Per Group</h3>
+
+        <p>
+            This is a <strong>very important interview problem</strong>.
+        </p>
+
+        <p>
+            For example:
+        </p>
+
+        <p>
+            <strong>Find the top 3 highest-paid employees in each department.</strong>
+        </p>
+
+        <p>
+            <strong>LIMIT 3</strong> cannot solve this because <strong>LIMIT</strong>
+            applies to the <strong>whole result</strong>, not each department.
+        </p>
+
+        <p>
+            We use a <strong>window function</strong>:
+        </p>
+
+        <pre><code>SELECT employee_id, name, department, salary
+        FROM (
+            SELECT
+                employee_id,
+                name,
+                department,
+                salary,
+                ROW_NUMBER() OVER (
+                    PARTITION BY department
+                    ORDER BY salary DESC
+                ) AS rn
+            FROM employees
+        ) AS ranked
+        WHERE rn &lt;= 3;</code></pre>
+
+        <p>Here:</p>
+
+        <pre><code>PARTITION BY department
+                ↓
+        Create a separate ranking for each department
+
+        ORDER BY salary DESC
+                ↓
+        Highest salary gets rank 1
+
+        WHERE rn &lt;= 3
+                ↓
+        Keep top 3 employees from each department</code></pre>
+      `},
+
+      {
+        id: "Ranking",
+        name: "Ranking",
+        theory:`
+        <p>
+            <strong>Ranking functions</strong> are <strong>window functions</strong> used
+            to assign a rank or position to each row based on a specified ordering.
+        </p>
+
+        <p>
+            They are especially important for <strong>Top-N problems, finding
+            highest/lowest values, and comparing records within groups</strong>.
+        </p>
+
+        <h3>Main Ranking Functions</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Purpose</th>
+                    <th>Handles Ties</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>ROW_NUMBER()</code></td>
+                    <td>Gives a unique sequential number</td>
+                    <td>No same rank</td>
+                </tr>
+                <tr>
+                    <td><code>RANK()</code></td>
+                    <td>Gives the same rank to tied values</td>
+                    <td>Creates gaps</td>
+                </tr>
+                <tr>
+                    <td><code>DENSE_RANK()</code></td>
+                    <td>Gives the same rank to tied values</td>
+                    <td>No gaps</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Syntax</h3>
+
+        <pre><code>function_name() OVER (
+            [PARTITION BY column]
+            ORDER BY column
+        )</code></pre>
+
+        <ul>
+            <li><strong>ORDER BY</strong> → determines the ranking order</li>
+            <li><strong>PARTITION BY</strong> → creates separate ranking groups</li>
+        </ul>
+
+        <h3>Example</h3>
+
+        <p>Suppose we have:</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>90000</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>70000</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>ROW_NUMBER()</h3>
+
+        <pre><code>SELECT
+            name,
+            salary,
+            ROW_NUMBER() OVER (ORDER BY salary DESC) AS row_num
+        FROM employees;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>salary</th>
+                    <th>row_num</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>90000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>80000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>80000</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>70000</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            Even though Priya and Rahul have the same salary, they get
+            <strong>different numbers</strong>.
+        </p>
+
+        <h3>RANK()</h3>
+
+        <pre><code>SELECT
+            name,
+            salary,
+            RANK() OVER (ORDER BY salary DESC) AS salary_rank
+        FROM employees;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>salary</th>
+                    <th>salary_rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>90000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>80000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>80000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>70000</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            Notice that after the tie at rank 2, <strong>rank 3 is skipped</strong>.
+        </p>
+
+        <h3>DENSE_RANK()</h3>
+
+        <pre><code>SELECT
+            name,
+            salary,
+            DENSE_RANK() OVER (ORDER BY salary DESC) AS salary_rank
+        FROM employees;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>salary</th>
+                    <th>salary_rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>90000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>80000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>80000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>70000</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            Here, <strong>no rank is skipped</strong>.
+        </p>
+
+        <h3>ROW_NUMBER vs RANK vs DENSE_RANK</h3>
+
+        <p>
+            This is a <strong>very common interview question</strong>.
+        </p>
+
+        <p>Suppose:</p>
+
+        <pre><code>Salary
+        90000
+        80000
+        80000
+        70000</code></pre>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Salary</th>
+                    <th><code>ROW_NUMBER()</code></th>
+                    <th><code>RANK()</code></th>
+                    <th><code>DENSE_RANK()</code></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>90000</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>80000</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>80000</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>70000</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Easy Way to Remember</h3>
+
+        <pre><code>ROW_NUMBER()
+        → Everyone gets a unique number
+
+        RANK()
+        → Same value = same rank + gaps
+
+        DENSE_RANK()
+        → Same value = same rank + no gaps</code></pre>
+
+        <h3>Ranking Within Groups</h3>
+
+        <p>
+            One of the most important uses is <strong>ranking within each department</strong>.
+        </p>
+
+        <p>Suppose:</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>department</th>
+                    <th>salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>IT</td>
+                    <td>90000</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>IT</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>HR</td>
+                    <td>70000</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>HR</td>
+                    <td>60000</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            To rank employees within each department:
+        </p>
+
+        <pre><code>SELECT
+            name,
+            department,
+            salary,
+            RANK() OVER (
+                PARTITION BY department
+                ORDER BY salary DESC
+            ) AS salary_rank
+        FROM employees;</code></pre>
+
+        <p><strong>Result:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>department</th>
+                    <th>salary</th>
+                    <th>salary_rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amit</td>
+                    <td>IT</td>
+                    <td>90000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>IT</td>
+                    <td>80000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>HR</td>
+                    <td>70000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Neha</td>
+                    <td>HR</td>
+                    <td>60000</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>
+            <strong>PARTITION BY department</strong> means
+            <strong>ranking restarts for each department</strong>.
+        </p>
+
+        <h3>Top 3 Employees in Each Department</h3>
+
+        <p>
+            This is a <strong>classic interview problem</strong>.
+        </p>
+
+        <pre><code>WITH ranked_employees AS (
+            SELECT
+                employee_id,
+                name,
+                department,
+                salary,
+                DENSE_RANK() OVER (
+                    PARTITION BY department
+                    ORDER BY salary DESC
+                ) AS salary_rank
+            FROM employees
+        )
+        SELECT *
+        FROM ranked_employees
+        WHERE salary_rank &lt;= 3;</code></pre>
+
+        <p>
+            Using <strong>DENSE_RANK()</strong> means employees tied at the same salary
+            receive the <strong>same rank</strong>.
+        </p>
+
+        <p>
+            If the requirement is <strong>exactly 3 rows per department</strong>, use
+            <strong>ROW_NUMBER()</strong> instead.
+        </p>
+
+        <h3>Ranking vs Aggregate Functions</h3>
+
+        <p>
+            Don't confuse <strong>ranking functions</strong> with
+            <strong>aggregate functions</strong>.
+        </p>
+
+        <h3>Aggregate</h3>
+
+        <pre><code>SELECT department, MAX(salary)
+        FROM employees
+        GROUP BY department;</code></pre>
+
+        <p>
+            Returns <strong>one result per group</strong>.
+        </p>
+
+        <h3>Ranking</h3>
+
+        <pre><code>SELECT
+            name,
+            department,
+            salary,
+            RANK() OVER (
+                PARTITION BY department
+                ORDER BY salary DESC
+            ) AS salary_rank
+        FROM employees;</code></pre>
+
+        <p>
+            Keeps <strong>individual rows</strong> and adds ranking information.
+        </p>
+      `},
+
+      {
+        id: "Indexes",
+        name: "Indexes",
+        theory:`
+        <p>An <strong>index</strong> is a database object used to <strong>speed up data retrieval</strong> from a table.</p>
+
+        <p>It works somewhat like an <strong>index in a book</strong>: instead of scanning every row to find a value, MySQL can use the index to locate relevant rows more efficiently.</p>
+
+        <h3>Basic Syntax</h3>
+
+        <pre><code>CREATE INDEX index_name
+        ON table_name (column_name);</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>CREATE INDEX idx_employee_name
+        ON employees (name);</code></pre>
+
+        <p>Now MySQL can use this index when searching/filtering based on <code>name</code>.</p>
+
+        <h3>Why Use Indexes?</h3>
+
+        <p>Indexes are useful for columns frequently used in:</p>
+
+        <ul>
+            <li><code>WHERE</code></li>
+            <li><code>JOIN</code></li>
+            <li><code>ORDER BY</code></li>
+            <li><code>GROUP BY</code></li>
+        </ul>
+
+        <p>For example:</p>
+
+        <pre><code>SELECT *
+        FROM employees
+        WHERE employee_id = 101;</code></pre>
+
+        <p>If <code>employee_id</code> is indexed, MySQL can potentially find the required row much faster, especially when the table contains a large number of records.</p>
+
+        <h3>Types of Indexes You Should Know</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>PRIMARY KEY</strong></td>
+                    <td>Automatically creates a primary index for the primary key</td>
+                </tr>
+                <tr>
+                    <td><strong>UNIQUE</strong></td>
+                    <td>Prevents duplicate indexed key values</td>
+                </tr>
+                <tr>
+                    <td><strong>INDEX / KEY</strong></td>
+                    <td>General-purpose index for faster lookups</td>
+                </tr>
+                <tr>
+                    <td><strong>COMPOSITE INDEX</strong></td>
+                    <td>Index on multiple columns</td>
+                </tr>
+                <tr>
+                    <td><strong>FULLTEXT</strong></td>
+                    <td>Used for full-text searching</td>
+                </tr>
+                <tr>
+                    <td><strong>SPATIAL</strong></td>
+                    <td>Used for spatial/geometric data</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Composite Index</h3>
+
+        <p>A <strong>composite index</strong> is an index created on multiple columns.</p>
+
+        <pre><code>CREATE INDEX idx_dept_salary
+        ON employees (department, salary);</code></pre>
+
+        <p>This can be useful for queries such as:</p>
+
+        <pre><code>SELECT *
+        FROM employees
+        WHERE department = 'IT'
+          AND salary &gt; 50000;</code></pre>
+
+        <p><strong>Important: Column Order Matters</strong></p>
+
+        <p>For:</p>
+
+        <pre><code>(department, salary)</code></pre>
+
+        <p>the index is most useful when the query uses the <strong>leading column(s)</strong> appropriately.</p>
+
+        <p>This is related to the <strong>leftmost-prefix principle</strong>.</p>
+
+        <p>For example, an index on:</p>
+
+        <pre><code>(department, salary)</code></pre>
+
+        <p>can generally help with:</p>
+
+        <pre><code>WHERE department = 'IT'</code></pre>
+
+        <p>and:</p>
+
+        <pre><code>WHERE department = 'IT'
+        AND salary &gt; 50000</code></pre>
+
+        <p>but may not be as useful for a query filtering only on:</p>
+
+        <pre><code>WHERE salary &gt; 50000</code></pre>
+
+        <h3>Creating an Index During Table Creation</h3>
+
+        <p>You can define an index while creating a table:</p>
+
+        <pre><code>CREATE TABLE employees (
+            employee_id INT PRIMARY KEY,
+            name VARCHAR(100),
+            department VARCHAR(50),
+            salary DECIMAL(10,2),
+
+            INDEX idx_department (department)
+        );</code></pre>
+
+        <h3>Removing an Index</h3>
+
+        <pre><code>DROP INDEX idx_employee_name
+        ON employees;</code></pre>
+
+        <h3>Advantages of Indexes</h3>
+
+        <h3>1. Faster Data Retrieval</h3>
+
+        <p>Queries involving indexed columns can become significantly faster.</p>
+
+        <h3>2. Faster Joins</h3>
+
+        <p>Indexes on columns used to join tables can improve join performance.</p>
+
+        <pre><code>SELECT e.name, d.department_name
+        FROM employees e
+        JOIN departments d
+            ON e.department_id = d.department_id;</code></pre>
+
+        <p>Indexes on the relevant join columns can help the database execute such queries efficiently.</p>
+
+        <h3>3. Faster Sorting/Filtering</h3>
+
+        <p>Indexes can help queries involving:</p>
+
+        <pre><code>WHERE
+        ORDER BY
+        GROUP BY</code></pre>
+
+        <p>depending on the query and execution plan.</p>
+
+        <h3>Disadvantages of Indexes</h3>
+
+        <p>Indexes are <strong>not free</strong>.</p>
+
+        <h3>1. Extra Storage</h3>
+
+        <p>Indexes require additional disk space.</p>
+
+        <h3>2. Slower INSERT/UPDATE/DELETE</h3>
+
+        <p>When data changes, MySQL may also need to update the relevant indexes.</p>
+
+        <p><strong>More indexes do not always mean better performance.</strong></p>
+
+        <h3>3. Maintenance Overhead</h3>
+
+        <p>Too many unnecessary indexes can increase storage and write overhead.</p>
+
+        <h3>When Should You Create an Index?</h3>
+
+        <p>Good candidates often include columns that are:</p>
+
+        <ul>
+            <li>Frequently searched using <code>WHERE</code></li>
+            <li>Frequently used in <code>JOIN</code> conditions</li>
+            <li>Frequently used for sorting</li>
+            <li>Frequently used for grouping</li>
+            <li>Highly selective</li>
+        </ul>
+
+        <p>For example:</p>
+
+        <pre><code>CREATE INDEX idx_orders_customer
+        ON orders (customer_id);</code></pre>
+
+        <p>If queries frequently search:</p>
+
+        <pre><code>SELECT *
+        FROM orders
+        WHERE customer_id = 101;</code></pre>
+
+        <p>the index may be useful.</p>
+
+        <h3>When an Index May Not Help Much</h3>
+
+        <p>An index may provide limited benefit when:</p>
+
+        <ul>
+            <li>The table is very small.</li>
+            <li>The column has very few distinct values.</li>
+            <li>The query returns a very large percentage of the table.</li>
+            <li>The index is rarely used.</li>
+            <li>Functions or expressions prevent effective use of the index in certain queries.</li>
+        </ul>
+
+        <p>For example, a column containing only:</p>
+
+        <pre><code>Male
+        Female</code></pre>
+
+        <p>has relatively low cardinality, so indexing it alone may not always provide much benefit.</p>
+
+        <h3>PRIMARY KEY vs INDEX</h3>
+
+        <p>A <strong>primary key is a constraint that identifies rows uniquely</strong>.</p>
+
+        <p>An <strong>index is primarily a data-access structure used to improve query performance</strong>.</p>
+
+        <p>When you define:</p>
+
+        <pre><code>employee_id INT PRIMARY KEY</code></pre>
+
+        <p>MySQL automatically creates an index associated with the primary key.</p>
+
+        <p>You don't normally need to create another ordinary index on the exact same primary-key column just for lookup purposes.</p>
+
+        <h3>How to Check Indexes</h3>
+
+        <p>You can see the indexes defined on a table using:</p>
+
+        <pre><code>SHOW INDEX FROM employees;</code></pre>
+
+        <h3>How to Check Whether MySQL Uses an Index</h3>
+
+        <p>Use <code>EXPLAIN</code>:</p>
+
+        <pre><code>EXPLAIN
+        SELECT *
+        FROM employees
+        WHERE department = 'IT';</code></pre>
+
+        <p><code>EXPLAIN</code> helps you understand the <strong>execution plan</strong>, including whether MySQL intends to use an index.</p>
+
+        <p>This is important for performance-related interview questions.</p>
+
+        <h3>Interview Answer</h3>
+
+        <p><strong>An index is a data structure used by MySQL to improve the performance of data retrieval. Indexes are commonly created on columns used frequently in WHERE conditions, JOINs, ORDER BY, or GROUP BY. They can significantly speed up read operations, but they require additional storage and can slow down INSERT, UPDATE, and DELETE operations because the indexes also need to be maintained.</strong></p>
+      `},
+
+      {
+        id: "Normalization",
+        name: "Normalization",
+        theory:`
+        <p><strong>Normalization</strong> is the process of organizing data in a database to <strong>reduce data redundancy</strong> and <strong>avoid data anomalies</strong> such as insertion, update, and deletion anomalies.</p>
+
+        <h3>Why is Normalization Needed?</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Data Redundancy</strong></td>
+                    <td>Same data is unnecessarily stored multiple times</td>
+                </tr>
+                <tr>
+                    <td><strong>Insertion Anomaly</strong></td>
+                    <td>Cannot insert data without unrelated data</td>
+                </tr>
+                <tr>
+                    <td><strong>Update Anomaly</strong></td>
+                    <td>Same information must be updated in multiple places</td>
+                </tr>
+                <tr>
+                    <td><strong>Deletion Anomaly</strong></td>
+                    <td>Deleting one record accidentally removes other useful information</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Normal Forms</h3>
+
+        <p>Normalization is performed in stages called <strong>Normal Forms</strong>.</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Normal Form</th>
+                    <th>Main Rule</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1NF</strong></td>
+                    <td>Atomic values; no repeating groups</td>
+                </tr>
+                <tr>
+                    <td><strong>2NF</strong></td>
+                    <td>1NF + no partial dependency</td>
+                </tr>
+                <tr>
+                    <td><strong>3NF</strong></td>
+                    <td>2NF + no transitive dependency</td>
+                </tr>
+                <tr>
+                    <td><strong>BCNF</strong></td>
+                    <td>Every determinant must be a candidate key</td>
+                </tr>
+                <tr>
+                    <td><strong>4NF</strong></td>
+                    <td>No multi-valued dependency</td>
+                </tr>
+                <tr>
+                    <td><strong>5NF</strong></td>
+                    <td>No join dependency</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+
+        <p>For most <strong>Data Analyst / SQL interviews</strong>, focus mainly on <strong>1NF, 2NF, 3NF, and BCNF</strong>.</p>
+
+        <h3>1NF — First Normal Form</h3>
+
+        <p>A table is in <strong>1NF</strong> when:</p>
+
+        <ul>
+            <li>Each column contains <strong>atomic (single) values</strong>.</li>
+            <li>There are no repeating groups or multiple values in one cell.</li>
+        </ul>
+
+        <p><strong>Not in 1NF:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Student_ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Rahul</td>
+                    <td>9876, 8765</td>
+                </tr>
+            </tbody>
+        </table>
+        </div.
+
+        <p><strong>In 1NF:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Student_ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Rahul</td>
+                    <td>9876</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Rahul</td>
+                    <td>8765</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>2NF — Second Normal Form</h3>
+
+        <p>A table is in <strong>2NF</strong> when:</p>
+
+        <ol>
+            <li>It is in <strong>1NF</strong>.</li>
+            <li>There is <strong>no partial dependency</strong>.</li>
+        </ol>
+
+        <p><strong>Partial dependency</strong> occurs when a non-key column depends on only <strong>part of a composite primary key</strong>.</p>
+
+        <p><strong>Example:</strong></p>
+
+        <p><code>Student_ID + Course_ID</code> → composite key</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Student_ID</th>
+                    <th>Course_ID</th>
+                    <th>Student_Name</th>
+                    <th>Course_Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>C101</td>
+                    <td>Rahul</td>
+                    <td>SQL</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>C102</td>
+                    <td>Rahul</td>
+                    <td>Python</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>Here:</p>
+
+        <ul>
+            <li><code>Student_Name</code> depends only on <code>Student_ID</code>.</li>
+            <li><code>Course_Name</code> depends only on <code>Course_ID</code>.</li>
+        </ul>
+
+        <p>So there is <strong>partial dependency</strong>.</p>
+
+        <p>To achieve <strong>2NF</strong>, split the table:</p>
+
+        <p><strong>Students</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Student_ID</th>
+                    <th>Student_Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Rahul</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p><strong>Courses</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Course_ID</th>
+                    <th>Course_Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>C101</td>
+                    <td>SQL</td>
+                </tr>
+                <tr>
+                    <td>C102</td>
+                    <td>Python</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p><strong>Enrollments</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Student_ID</th>
+                    <th>Course_ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>C101</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>C102</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>3NF — Third Normal Form</h3>
+
+        <p>A table is in <strong>3NF</strong> when:</p>
+
+        <ol>
+            <li>It is in <strong>2NF</strong>.</li>
+            <li>There is <strong>no transitive dependency</strong>.</li>
+        </ol>
+
+        <p><strong>Transitive dependency</strong> means:</p>
+
+        <p><code>Primary Key → A → B</code></p>
+
+        <p>where B depends indirectly on the primary key.</p>
+
+        <p><strong>Example:</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee_ID</th>
+                    <th>Department_ID</th>
+                    <th>Department_Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>D01</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>D02</td>
+                    <td>HR</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>Here:</p>
+
+        <p><code>Employee_ID → Department_ID → Department_Name</code></p>
+
+        <p><code>Department_Name</code> indirectly depends on <code>Employee_ID</code>.</p>
+
+        <p>Split into:</p>
+
+        <p><strong>Employees</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee_ID</th>
+                    <th>Department_ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>D01</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>D02</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p><strong>Departments</strong></p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Department_ID</th>
+                    <th>Department_Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>D01</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>D02</td>
+                    <td>HR</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>Now the database is in <strong>3NF</strong>.</p>
+
+        <h3>BCNF</h3>
+
+        <p><strong>BCNF (Boyce-Codd Normal Form)</strong> is a stronger version of 3NF.</p>
+
+        <p><strong>Rule:</strong></p>
+
+        <p><strong>Every determinant must be a candidate key.</strong></p>
+
+        <p>In simple interview terms:</p>
+
+        <p><strong>3NF</strong> removes transitive dependencies, while <strong>BCNF</strong> handles certain dependency situations that 3NF may still allow.</p>
+
+        <h3>Normalization vs Denormalization</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Normalization</th>
+                    <th>Denormalization</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Reduces redundancy</td>
+                    <td>Intentionally introduces redundancy</td>
+                </tr>
+                <tr>
+                    <td>Reduces data anomalies</td>
+                    <td>Can improve read performance</td>
+                </tr>
+                <tr>
+                    <td>More tables</td>
+                    <td>Fewer tables</td>
+                </tr>
+                <tr>
+                    <td>More JOINs may be required</td>
+                    <td>Fewer JOINs</td>
+                </tr>
+                <tr>
+                    <td>Common in transactional systems</td>
+                    <td>Common in analytics/data warehouses</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Interview Answer</h3>
+
+        <blockquote>
+            <p><strong>Normalization is the process of organizing database tables to reduce data redundancy and prevent insertion, update, and deletion anomalies. It is achieved through normal forms such as 1NF, 2NF, 3NF, and BCNF.</strong></p>
+        </blockquote>
+
+        <h3>Quick Memory Trick</h3>
+
+        <p><strong>1NF → Atomic values</strong></p>
+
+        <p><strong>2NF → No partial dependency</strong></p>
+
+        <p><strong>3NF → No transitive dependency</strong></p>
+
+        <p><strong>BCNF → Every determinant is a candidate key</strong></p>
+      `},
+
+      {
+        id: "StoredProcedures",
+        name: "Stored Procedures",
+        theory:`
+        <p>A <strong>Stored Procedure</strong> is a set of SQL statements stored in the database that can be <strong>executed whenever required</strong>.</p>
+
+        <p>It is useful for performing repetitive database operations and implementing business logic at the database level.</p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>DELIMITER //
+
+        CREATE PROCEDURE procedure_name()
+        BEGIN
+            -- SQL statements
+        END //
+
+        DELIMITER ;</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>DELIMITER //
+
+        CREATE PROCEDURE GetEmployees()
+        BEGIN
+            SELECT *
+            FROM employees;
+        END //
+
+        DELIMITER ;</code></pre>
+
+        <p><strong>Execute the procedure:</strong></p>
+
+        <pre><code>CALL GetEmployees();</code></pre>
+
+        <h3>Stored Procedure with Parameters</h3>
+
+        <h3>IN Parameter</h3>
+
+        <p>Used to pass a value <strong>into</strong> the procedure.</p>
+
+        <pre><code>DELIMITER //
+
+        CREATE PROCEDURE GetEmployeesByDepartment(IN dept_name VARCHAR(50))
+        BEGIN
+            SELECT *
+            FROM employees
+            WHERE department = dept_name;
+        END //
+
+        DELIMITER ;</code></pre>
+
+        <p><strong>Call:</strong></p>
+
+        <pre><code>CALL GetEmployeesByDepartment('IT');</code></pre>
+
+        <h3>OUT Parameter</h3>
+
+        <p>Used to return a value from the procedure.</p>
+
+        <pre><code>DELIMITER //
+
+        CREATE PROCEDURE GetEmployeeCount(OUT total INT)
+        BEGIN
+            SELECT COUNT(*) INTO total
+            FROM employees;
+        END //
+
+        DELIMITER ;</code></pre>
+
+        <p><strong>Call:</strong></p>
+
+        <pre><code>CALL GetEmployeeCount(@count);
+
+        SELECT @count;</code></pre>
+
+        <h3>INOUT Parameter</h3>
+
+        <p>Can be used to <strong>pass a value in and return a modified value</strong>.</p>
+
+        <pre><code>DELIMITER //
+
+        CREATE PROCEDURE AddBonus(INOUT salary DECIMAL(10,2))
+        BEGIN
+            SET salary = salary + 5000;
+        END //
+
+        DELIMITER ;</code></pre>
+
+        <h3>Advantages</h3>
+
+        <ul>
+            <li><strong>Reusable</strong> — write logic once and execute multiple times.</li>
+            <li><strong>Reduces repetitive SQL code</strong></li>
+            <li><strong>Can improve security</strong> by controlling direct table access.</li>
+            <li><strong>Centralizes business logic</strong></li>
+            <li>Can perform multiple SQL operations in a single <code>CALL</code>.</li>
+        </ul>
+
+        <h3>Disadvantages</h3>
+
+        <ul>
+            <li>More difficult to maintain when procedures become very complex.</li>
+            <li>Database-specific syntax can reduce portability.</li>
+            <li>Excessive business logic in procedures can make application architecture harder to manage.</li>
+        </ul>
+
+        <h3>Stored Procedure vs Function</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Stored Procedure</th>
+                    <th>Function</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Called using <code>CALL</code></td>
+                    <td>Usually called within SQL expressions</td>
+                </tr>
+                <tr>
+                    <td>Can return zero, one, or multiple result sets / use OUT parameters</td>
+                    <td>Returns a single value</td>
+                </tr>
+                <tr>
+                    <td>Can use <code>IN</code>, <code>OUT</code>, <code>INOUT</code> parameters</td>
+                    <td>Parameters are <code>IN</code></td>
+                </tr>
+                <tr>
+                    <td>Can perform broader procedural operations</td>
+                    <td>Generally intended to calculate and return a value</td>
+                </tr>
+                <tr>
+                    <td>Example: generate employee report</td>
+                    <td>Example: calculate tax</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Interview Answer</h3>
+
+        <p><strong>A stored procedure is a stored collection of SQL statements that can be executed using <code>CALL</code>. It is used to encapsulate reusable database logic and can accept parameters such as IN, OUT, and INOUT.</strong></p>
+      `},
+
+      {
+        id: "Triggers",
+        name: "Triggers",
+        theory:`
+        <p>A <strong>Trigger</strong> is a database object that <strong>automatically executes when a specified event occurs</strong> on a table.</p>
+
+        <p>Triggers are commonly used for <strong>auditing, validation, logging, and automatically maintaining related data</strong>.</p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>CREATE TRIGGER trigger_name
+        {BEFORE | AFTER} {INSERT | UPDATE | DELETE}
+        ON table_name
+        FOR EACH ROW
+        BEGIN
+            -- SQL statements
+        END;</code></pre>
+
+        <h3>Trigger Events</h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>When it executes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>INSERT</code></td>
+                    <td>When a new row is inserted</td>
+                </tr>
+                <tr>
+                    <td><code>UPDATE</code></td>
+                    <td>When an existing row is updated</td>
+                </tr>
+                <tr>
+                    <td><code>DELETE</code></td>
+                    <td>When a row is deleted</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p>A trigger can execute <strong>BEFORE</strong> or <strong>AFTER</strong> the event.</p>
+
+        <h3>Example</h3>
+
+        <p>Suppose we have an <code>employees</code> table and want to automatically record when an employee's salary changes.</p>
+
+        <p><strong>Audit Table</strong></p>
+
+        <pre><code>CREATE TABLE salary_audit (
+            employee_id INT,
+            old_salary DECIMAL(10,2),
+            new_salary DECIMAL(10,2),
+            changed_at DATETIME
+        );</code></pre>
+
+        <p><strong>Trigger</strong></p>
+
+        <pre><code>DELIMITER //
+
+        CREATE TRIGGER after_salary_update
+        AFTER UPDATE ON employees
+        FOR EACH ROW
+        BEGIN
+            IF OLD.salary &lt;&gt; NEW.salary THEN
+                INSERT INTO salary_audit
+                VALUES (
+                    OLD.employee_id,
+                    OLD.salary,
+                    NEW.salary,
+                    NOW()
+                );
+            END IF;
+        END //
+
+        DELIMITER ;</code></pre>
+
+        <p>Now, whenever an employee's salary is updated, the trigger automatically inserts the old and new salary into <code>salary_audit</code>.</p>
+
+        <h3><code>OLD</code> and <code>NEW</code></h3>
+
+        <p>MySQL provides special keywords inside triggers:</p>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>NEW</code></td>
+                    <td>New value of the row</td>
+                </tr>
+                <tr>
+                    <td><code>OLD</code></td>
+                    <td>Existing value before the change</td>
+                </tr>
+            </tbody>
+        </table>
+        <//div>
+
+        <p>For example:</p>
+
+        <pre><code>OLD.salary</code></pre>
+
+        <p>→ salary before update</p>
+
+        <pre><code>NEW.salary</code></pre>
+
+        <p>→ salary after update</p>
+
+        <h3>Availability of <code>OLD</code> and <code>NEW</code></h3>
+
+        <div style="width: 100%; overflow-x: auto; margin: 10px 0;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th><code>OLD</code></th>
+                    <th><code>NEW</code></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>INSERT</code></td>
+                    <td>❌</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td><code>UPDATE</code></td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td><code>DELETE</code></td>
+                    <td>✅</td>
+                    <td>❌</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>BEFORE vs AFTER Trigger</h3>
+
+        <h3>BEFORE Trigger</h3>
+
+        <p>Executes <strong>before</strong> the operation.</p>
+
+        <p>Commonly used for:</p>
+
+        <ul>
+            <li><strong>Validation</strong></li>
+            <li><strong>Modifying values before insertion/update</strong></li>
+        </ul>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>CREATE TRIGGER before_employee_insert
+        BEFORE INSERT ON employees
+        FOR EACH ROW
+        BEGIN
+            SET NEW.name = TRIM(NEW.name);
+        END;</code></pre>
+
+        <h3>AFTER Trigger</h3>
+
+        <p>Executes <strong>after</strong> the operation is completed.</p>
+
+        <p>Commonly used for:</p>
+
+        <ul>
+            <li><strong>Auditing</strong></li>
+            <li><strong>Logging</strong></li>
+            <li><strong>Updating related information</strong></li>
+        </ul>
+
+        <h3>Advantages</h3>
+
+        <ul>
+            <li>Automatically performs actions when data changes.</li>
+            <li>Useful for <strong>auditing and maintaining history</strong>.</li>
+            <li>Helps enforce certain business rules.</li>
+            <li>Reduces the need for application code for some automatic actions.</li>
+        </ul>
+
+        <h3>Disadvantages</h3>
+
+        <ul>
+            <li>Logic can be hidden from application developers.</li>
+            <li>Complex triggers can make debugging difficult.</li>
+            <li>Too many triggers can make database operations harder to understand and maintain.</li>
+            <li>Trigger actions can add overhead to <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</li>
+        </ul>
+
+        <h3>Interview Answer</h3>
+
+        <p><strong>A trigger is a database object that automatically executes in response to events such as INSERT, UPDATE, or DELETE on a table. In MySQL, triggers can run BEFORE or AFTER the event and are commonly used for auditing, validation, and automatic data processing.</strong></p>
+      `},
+    ],
+  },
 };
+
